@@ -7,4 +7,9 @@ Tastell::Application.routes.draw do
   resources :users, only: [:index]
   resources :authentications, only: [:new, :create]
 
+
+  namespace :account do
+    resources :places
+  end
+
 end

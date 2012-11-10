@@ -1,0 +1,19 @@
+.row
+  .span3
+    = image_tag @place.avatar_url(:thumb)
+  .span9
+    %h1
+      = @place.name
+      %small
+        %br
+        = @place.address
+
+    %ul.nav.nav-pills
+      %li
+        = link_to 'Фотографии', root_path
+      %li
+        = link_to 'Основное', edit_account_place_path(@place)
+      %li
+        = link_to 'Теги', root_path
+      %li
+        = link_to 'Описание', root_path

@@ -18,6 +18,8 @@ gem 'haml-rails'
 gem 'rmagick'
 gem 'carrierwave'
 
+gem 'simple_form'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

@@ -5,7 +5,7 @@ class Account::PlacesController < ApplicationController
   before_filter :find_place, only: [:show, :edit, :update, :destroy]
 
   def index
-    @places = current_account.places
+    @places = Place.order(:id)
   end
 
   def show
