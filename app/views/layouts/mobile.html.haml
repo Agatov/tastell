@@ -1,0 +1,15 @@
+!!! 5
+%html
+  %head
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    = stylesheet_link_tag    "mobile", :media => "all"
+    = javascript_include_tag "mobile"
+  %body
+    / Home
+    #page1{"data-role" => "page"}
+      %div{"data-role" => "header", "data-theme" => "a"}
+        %h4
+          Tastell
+
+      = yield
