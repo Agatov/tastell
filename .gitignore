@@ -21,3 +21,4 @@ db/sphinx
 config/development.sphinx.conf
 Gemfile.lock
 .idea
+*.DS_Store
