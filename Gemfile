@@ -14,6 +14,8 @@ gem 'jquery-rails'
 gem 'jquery_mobile_rails'
 
 gem 'haml-rails'
+
+gem 'rmagick'
 gem 'carrierwave'
 
 # To use Jbuilder templates for JSON
