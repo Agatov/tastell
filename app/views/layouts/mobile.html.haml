@@ -6,10 +6,11 @@
     = stylesheet_link_tag    "mobile", :media => "all"
     = javascript_include_tag "mobile"
   %body
-    / Home
-    #page1{"data-role" => "page"}
-      %div{"data-role" => "header", "data-theme" => "a"}
-        %h4
+    #wrapper
+      #header
+        .title
           Tastell
-
-      = yield
+      .hr-shadow
+      #content
+        .padder
+          = yield
