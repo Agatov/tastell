@@ -21,6 +21,8 @@ gem 'carrierwave'
 
 gem 'simple_form'
 
+gem 'thinking-sphinx'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
