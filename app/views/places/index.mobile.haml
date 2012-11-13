@@ -1,0 +1,4 @@
+#places-list
+  - @places.each do |place|
+    %a.place{href: place_path(place)}
+      = place.name
