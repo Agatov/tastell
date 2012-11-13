@@ -1,6 +1,6 @@
 class PlacesController < ApplicationController
 
-  layout "mobile"
+  before_filter :mobile_device?
 
   def index
     @places = Place.order(:id)

@@ -1,12 +1,8 @@
 class AuthenticationsController < ApplicationController
 
-  layout "mobile"
+  before_filter :mobile_device?
 
   def new
-    respond_to do |format|
-      format.html
-      #format.mobile
-    end
   end
 
   def create

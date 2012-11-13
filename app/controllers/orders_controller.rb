@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+
+  include ApplicationHelper
+
   def index
   end
 
@@ -6,5 +9,12 @@ class OrdersController < ApplicationController
   end
 
   def create
+    @order = User.find(1).orders.create(params[:order])
+
+    if @order.save
+      render json: {status: :ok, order_id: @order.id, url: vk_social_url(@order)}
+    else
+      render json: {status: :error}
+    end
   end
 end
