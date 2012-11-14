@@ -4,4 +4,18 @@ class Place < ActiveRecord::Base
   has_many :orders
 
   mount_uploader :avatar, PlaceAvatarUploader
+
+  geocoded_by :address
+  after_validation :geocode, if: :address_changed?
+
+  define_index do
+    indexes name
+
+    has "RADIANS(`places`.`latitude`)", as: :latitude, type: :float
+    has "RADIANS(`places`.`longitude`)", as: :longitude, type: :float
+  end
+
+  sphinx_scope(:by_point) { |latlng|
+    {geo: latlng, with: {"@geodist" => 0.0..1000.0}}
+  }
 end
