@@ -1,3 +1,6 @@
 /*
- *= require jquery.mobile
+ *= require reset
+ *= require mobile/index
+ *= require mobile/auth
+ *= require mobile/place
  */
