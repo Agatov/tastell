@@ -22,9 +22,9 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
 
     if @order.check.state_confirmed?
-      render json: {status: :ok}
+      render json: {status: :success}
     else
-      render json: {status: :error}
+      render json: {status: :not_found}
     end
   end
 end

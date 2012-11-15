@@ -1,4 +1,6 @@
 $ ->
+
+
   $("#recommend").bind("click",
     ->
       $.post("/orders",
@@ -9,6 +11,8 @@ $ ->
         (data) =>
           $("#recommend-form").hide()
 
+          window.order_checker = new OrderChecker(data.order_id)
+
           $("#repost-form").find(".repost-button").attr("href", data.url)
 
           $("#repost-form").show()
@@ -16,4 +20,16 @@ $ ->
 
 
       )
+  )
+
+
+
+  $("#repost").bind("click",
+    ->
+
+      order_checker.initialize()
+      $(this).hide()
+
+      (window.open($(this).attr("href"))).focus()
+      false
   )
