@@ -11,6 +11,10 @@ group :assets do
   gem 'bourbon'
 end
 
+group :development do
+  gem "thin"
+end
+
 gem 'jquery-rails'
 
 gem 'haml-rails'
