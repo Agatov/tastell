@@ -1,4 +1,4 @@
-class VKChecker
+class VkChecker
 
   attr_accessor :order, :success, :vk
 
@@ -23,13 +23,14 @@ class VKChecker
 
   def check
     get_wall_posts.each do |post|
+      next unless post.attachment and post.attachment["type"] == 'link'
       break if check_one(post).success?
     end
     self
   end
 
   def check_one(post)
-    if post.include? expected_url
+    if post.attachment["link"]["url"].include? expected_url
       self.success = true
     end
 
@@ -41,7 +42,8 @@ class VKChecker
   end
 
   def expected_url
-    "gurmap.ru/places/#{order.place_id}##{order.id}"
+    "10.0.20.41"
+    #"gurmap.ru/places/#{order.place_id}##{order.id}"
   end
 
 end

@@ -7,7 +7,7 @@ class Order < ActiveRecord::Base
   as_enum :state, [:fresh, :waiting, :confirmed, :rejected], prefix: true
 
   def check
-    if VKChecker.new(self).check.success?
+    if VkChecker.new(self).check.success?
       confirm
     else
       wait
@@ -19,7 +19,7 @@ class Order < ActiveRecord::Base
   protected
 
   def confirm
-    update_attributes(state: :confirmed) if state_fresh?
+    update_attributes(state: :confirmed)
   end
 
   def wait
