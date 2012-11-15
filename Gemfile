@@ -19,11 +19,15 @@ gem 'jquery-rails'
 
 gem 'haml-rails'
 
+gem 'simple_enum'
+
 gem 'rmagick'
 gem 'carrierwave'
 
 gem 'simple_form'
 gem 'geocoder'
+
+gem 'vkontakte_api'
 
 gem 'thinking-sphinx'
 
