@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   def mobile_device?
     if request.user_agent =~ /Mobile|webOS/
       request.format = :mobile
-      response
       true
     end
   end
