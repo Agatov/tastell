@@ -4,4 +4,5 @@ class User < ActiveRecord::Base
   mount_uploader :avatar, UserAvatarUploader
 
   has_many :orders
+  has_one :authentication
 end
