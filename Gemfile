@@ -19,6 +19,7 @@ gem 'rmagick'
 gem 'carrierwave'
 
 gem 'simple_form'
+gem 'geocoder'
 
 gem 'thinking-sphinx'
 
