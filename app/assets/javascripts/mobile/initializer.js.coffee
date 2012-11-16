@@ -6,11 +6,8 @@ $ ->
   if $("#recommend")
     window.recommend_button = new RecommendButton($("#recommend"))
 
-
-
   $("#repost").bind("click",
     ->
-
       order_checker.initialize()
       $(this).hide()
 
