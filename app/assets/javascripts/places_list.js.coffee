@@ -1,12 +1,9 @@
 class window.PlacesList
 
-  constructor: (latlng) ->
+  constructor: ->
     @el = $("#places-list")
-    @latlng = latlng
     @places = []
     @geolocator = new Geolocator()
-
-    @initialize()
 
   initialize: ->
 
@@ -14,10 +11,7 @@ class window.PlacesList
 
     $(@geolocator).bind("latlng_ready", @get_places)
 
-
     @geolocator.initialize()
-
-
 
   get_places: (data) ->
     $.get(
@@ -25,6 +19,7 @@ class window.PlacesList
     (data) =>
       @add_place(place) for place in data.places
       @render()
+      $(@).trigger("ready")
     )
 
   add_place: (data) ->
@@ -34,7 +29,6 @@ class window.PlacesList
 
   render: ->
     _.each(@places, (place) =>
-      console.log(place + " ... ... ")
       @el.append(place.render().el)
     )
 
@@ -48,11 +42,10 @@ class window.Place
   constructor: (data, parent) ->
     @el = $(document.createElement(@tagName))
     @el.addClass(@tagClass)
+
     @id = data.id
     @data = data
     @parent = @parent
-
-  initialize: ->
 
   render: ->
     template = _.template($(@template).html())
