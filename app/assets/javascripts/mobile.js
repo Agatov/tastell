@@ -3,16 +3,16 @@
 //= require underscore
 //= require jquery.spin
 
-//= require order_checker
+//= require mobile/buttons/button
+//= require mobile/buttons/find_places
+//= require mobile/buttons/recommend
 
-//= require geolocator
-//= require places_list
+//= require mobile/geolocator
+//= require mobile/places_list
 
 //= require mobile/recommendation
 
-//= require button
-//= require mobile/buttons/find_places
-//= require mobile/buttons/recommend
+//= require mobile/order_checker
 
 //= require mobile/initializer
 
