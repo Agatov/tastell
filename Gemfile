@@ -17,6 +17,7 @@ end
 
 gem 'jquery-rails'
 gem 'underscore-rails'
+gem 'spinjs-rails'
 
 gem 'haml-rails'
 
