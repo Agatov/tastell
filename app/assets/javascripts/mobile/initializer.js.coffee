@@ -1,5 +1,10 @@
 $ ->
 
+  $("#find_places").bind('click',
+    ->
+      window.places_list = new PlacesList(0)
+      #places_list.render()
+  )
 
   $("#recommend").bind("click",
     ->

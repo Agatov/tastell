@@ -8,6 +8,9 @@ class Place < ActiveRecord::Base
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
 
+  acts_as_api
+  include ApiV1::Place
+
   define_index do
     indexes name
 

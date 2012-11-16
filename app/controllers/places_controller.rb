@@ -4,6 +4,14 @@ class PlacesController < ApplicationController
 
   def index
     @places = Place.order(:id)
+
+    respond_to do |format|
+      format.html
+      format.mobile
+      format.json {
+        render_for_api :list, json: @places, meta: {status: :ok}
+      }
+    end
   end
 
   def show

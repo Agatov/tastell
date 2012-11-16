@@ -16,6 +16,7 @@ group :development do
 end
 
 gem 'jquery-rails'
+gem 'underscore-rails'
 
 gem 'haml-rails'
 
@@ -30,6 +31,8 @@ gem 'geocoder'
 gem 'vkontakte_api'
 
 gem 'thinking-sphinx'
+
+gem 'acts_as_api'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

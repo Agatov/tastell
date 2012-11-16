@@ -1,4 +1,8 @@
-#places-list
-  - @places.each do |place|
-    %a.place{href: place_path(place)}
-      = place.name
+#find_places
+  Найти места
+
+%ul#places-list
+
+%script#place-list-item-template{type: "text/template"}
+  %a{href: '/places/<%= id %>'.html_safe}
+    <%= name %>
