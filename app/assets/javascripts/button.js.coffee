@@ -23,7 +23,7 @@ class window.Button
 
     @spin = $(document.createElement("div"))
     @spin.addClass("spin")
-    @el.append(spin)
+    @el.append(@spin)
     @spin.spin({
       lines: 7,
       radius: 5
