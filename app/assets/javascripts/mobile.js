@@ -8,8 +8,11 @@
 //= require geolocator
 //= require places_list
 
+//= require mobile/recommendation
+
 //= require button
 //= require mobile/buttons/find_places
+//= require mobile/buttons/recommend
 
 //= require mobile/initializer
 

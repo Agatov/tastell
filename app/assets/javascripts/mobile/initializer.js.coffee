@@ -1,31 +1,10 @@
 $ ->
 
-  $("#find_places").bind('click',
-    ->
-      window.places_list = new PlacesList(0)
-      #places_list.render()
-  )
+  if $("#find_places")
+    window.find_places_button = new FindPlacesButton($("#find_places"))
 
-  $("#recommend").bind("click",
-    ->
-      $.post("/orders",
-        {
-          "order[content]": $("#recommend-area").val(),
-          "order[place_id]": 1
-        },
-        (data) =>
-          $("#recommend-form").hide()
-
-          window.order_checker = new OrderChecker(data.order_id)
-
-          $("#repost-form").find(".repost-button").attr("href", data.url)
-
-          $("#repost-form").show()
-          $("body").animate({scrollTop: 0})
-
-
-      )
-  )
+  if $("#recommend")
+    window.recommend_button = new RecommendButton($("#recommend"))
 
 
 
