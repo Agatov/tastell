@@ -6,11 +6,5 @@ $ ->
   if $("#recommend")
     window.recommend_button = new RecommendButton($("#recommend"))
 
-  $("#repost").bind("click",
-    ->
-      order_checker.initialize()
-      $(this).hide()
-
-      (window.open($(this).attr("href"))).focus()
-      false
-  )
+  if $("#repost")
+    window.repost_button = new RepostButton($("#repost"))

@@ -6,6 +6,7 @@
 //= require mobile/buttons/button
 //= require mobile/buttons/find_places
 //= require mobile/buttons/recommend
+//= require mobile/buttons/repost
 
 //= require mobile/geolocator
 //= require mobile/places_list
