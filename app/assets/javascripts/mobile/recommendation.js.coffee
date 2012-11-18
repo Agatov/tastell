@@ -4,10 +4,12 @@ class window.Recommendation
     @recommend_form = $("#recommend-form")
     @recommend_area = $("#recommend-area")
     @repost_form = $("#repost-form")
-    @repost_button = $("#repost-button")
+    @repost_button = $("#repost")
 
     @content = null
     @place_id = null
+
+    @order_checker = null
 
     @initialize()
 
@@ -26,8 +28,8 @@ class window.Recommendation
   after_recommend: (data) ->
     $(@).trigger("ready")
     @recommend_form.hide()
-    @order_checker = new OrderChecker(data.order_id)
     @repost_button.attr("href", data.url)
+    @repost_button.attr("order-id", data.order_id)
     @repost_form.show()
     $("body").animate({scrollTop: 0})
 
