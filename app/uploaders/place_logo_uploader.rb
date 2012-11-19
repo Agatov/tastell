@@ -1,4 +1,4 @@
-class PlaceAvatarUploader < CarrierWave::Uploader::Base
+class PlaceLogoUploader < CarrierWave::Uploader::Base
   include CarrierWave::RMagick
 
   storage :file
