@@ -1,4 +1,7 @@
-#places-list
+%ul#places-list
   - @places.each do |place|
-    %a.place{href: place_path(place)}
-      = place.name
+    %li.place
+      .image
+        = image_tag place.avatar_url(:web_thumb)
+      .info
+        = place.name

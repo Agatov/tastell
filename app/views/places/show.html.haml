@@ -1,24 +1,16 @@
-#place
-  .header
-    .picture
-      %img{src: @place.avatar_url(:thumb)}
-      .name
-        = @place.name
+#place-header
+  .avatar
+    = image_tag @place.logo_url(:small_thumb)
 
+  .info
+    .name
+      = @place.name
+    .address
+      = @place.address
 
+#place-photos
+  .photo
 
-  .form#recommend-form
-    .label
-      Расскажите о заведении своим друзьям
-
-    %textarea.recommend-area#recommend-area
-
-    .recommend-button#recommend
-      Рекомендовать
-
-  .form#repost-form
-    .label
-      Ваш отзыв учтен. Осталось рассказать о нем в VK
-      и получить скидку
-    %a.repost-button{href: '#'}
-      Рассказать в VK
+#place-content
+  .story
+    = @place.description.html_safe
