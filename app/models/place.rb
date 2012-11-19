@@ -1,9 +1,10 @@
 class Place < ActiveRecord::Base
-  attr_accessible :address, :avatar, :average_check, :description, :latitude, :longitude, :name, :phone
+  attr_accessible :address, :avatar, :average_check, :description, :latitude, :longitude, :name, :phone, :logo
 
   has_many :orders
 
   mount_uploader :avatar, PlaceAvatarUploader
+  mount_uploader :logo, PlaceLogoUploader
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
