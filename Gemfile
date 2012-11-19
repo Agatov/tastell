@@ -35,6 +35,8 @@ gem 'thinking-sphinx'
 
 gem 'acts_as_api'
 
+gem 'flash_cookie_session'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 
