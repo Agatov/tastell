@@ -11,7 +11,9 @@ Tastell::Application.routes.draw do
 
 
   namespace :account do
-    resources :places
+    resources :places do
+      get :description, on: :member
+    end
   end
 
 end

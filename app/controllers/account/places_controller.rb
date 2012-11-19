@@ -2,7 +2,7 @@ class Account::PlacesController < ApplicationController
 
   layout "account"
 
-  before_filter :find_place, only: [:show, :edit, :update, :destroy]
+  before_filter :find_place, only: [:show, :description, :edit, :update, :destroy]
 
   def index
     @places = Place.order(:id)
@@ -17,7 +17,7 @@ class Account::PlacesController < ApplicationController
   end
 
   def create
-    @place = current_account.places.build(params[:place])
+    @place = Place.new(params[:place])
 
     respond_to do |format|
       if @place.save
@@ -26,6 +26,10 @@ class Account::PlacesController < ApplicationController
         format.html { render :new }
       end
     end
+  end
+
+  def description
+
   end
 
   def edit
