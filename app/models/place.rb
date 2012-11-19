@@ -2,6 +2,7 @@ class Place < ActiveRecord::Base
   attr_accessible :address, :avatar, :average_check, :description, :latitude, :longitude, :name, :phone, :logo
 
   has_many :orders
+  has_many :photos
 
   mount_uploader :avatar, PlaceAvatarUploader
   mount_uploader :logo, PlaceLogoUploader
