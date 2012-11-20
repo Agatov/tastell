@@ -1,6 +1,6 @@
 .row
   .span3
-    = image_tag @place.avatar_url(:thumb)
+    -# image_tag @place.avatar_url(:thumb)
   .span9
     %h1
       = @place.name
@@ -16,4 +16,4 @@
       %li
         = link_to 'Теги', root_path
       %li
-        = link_to 'Описание', root_path
+        = link_to 'Описание', description_account_place_path(@place)

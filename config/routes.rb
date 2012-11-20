@@ -13,6 +13,8 @@ Tastell::Application.routes.draw do
   namespace :account do
     resources :places do
       get :description, on: :member
+
+      resources :photos, only: [:index, :create, :destroy]
     end
   end
 
