@@ -16,5 +16,12 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+
+    respond_to do |format|
+      format.html {
+        render layout: "application_place"
+      }
+      format.mobile
+    end
   end
 end
