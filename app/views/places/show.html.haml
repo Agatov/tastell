@@ -9,8 +9,32 @@
       = @place.address
 
 #place-photos
-  .photo
+  .block
+    .arrow-left
+    .arrow-right
+    .photos
+      - @place.photos.each do |photo|
+
+        %div
+          = image_tag photo.image_url(:full)
+
+-#place-info
+  .item
+    Телефон: 525-13-79
+  .item
+    Кухня: Европейская, Американская
 
 #place-content
   .story
     = @place.description.html_safe
+
+
+#balloon-template{style: 'display: none'}
+  .balloon
+    .arrow
+      %img{src: '/assets/bubble-arrow.png'}
+    .image
+      .name
+        = @place.name
+
+#place-map
