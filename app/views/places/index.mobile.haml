@@ -5,4 +5,10 @@
 
 %script#place-list-item-template{type: "text/template"}
   %a{href: '/places/<%= id %>'.html_safe}
-    <%= name %>
+    .img
+      %img{src: "<%= logo_mini_url %>".html_safe}
+    .info
+      .name
+        <%= name %>
+      .address
+        Большой Каретный переулок, дом 24/7

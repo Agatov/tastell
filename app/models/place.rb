@@ -23,4 +23,8 @@ class Place < ActiveRecord::Base
   sphinx_scope(:by_point) { |latlng|
     {geo: latlng, with: {"@geodist" => 0.0..1000.0}}
   }
+
+  def logo_mini_url
+    logo_url(:mini) if logo?
+  end
 end

@@ -1,5 +1,7 @@
 $ ->
 
+  $("body").animate({scrollTop: 0})
+
   if $("#find_places")
     window.find_places_button = new FindPlacesButton($("#find_places"))
 

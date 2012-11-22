@@ -1,12 +1,5 @@
 @import "mobile/mixins/buttons"
-
-@mixin label
-  display: block
-  margin: 10px 0
-  padding: 10px
-  background: #f7f7f7
-  border: 1px solid #f2f2f2
-  border-radius: 10px
+@import "mobile/mixins/label.css.sass"
 
 
 #find_places
@@ -14,23 +7,58 @@
 
 
 #places-list
+  background: #fff
+  border-radius: 10px
+  border: 1px solid #eaeaea
+  -webkit-box-shadow: inset 0 0 7px #eaeaea
+  padding: 10px 0
   .place
     a
-      font-size: 24px
+      height: 75px
       color: #333
       text-decoration: none
       display: block
-      padding: 20px
-      background: -webkit-linear-gradient(top, #f7f7f7, #eaeaea)
-      -webkit-box-shadow: inset 0 0 5px #eaeaea
-      border: 1px solid #eaeaea
-      border-radius: 10px
-      margin: 5px 0
+      padding: 0 10px
+      //background: -webkit-linear-gradient(top, #f7f7f7, #eaeaea)
+      background: #fff
+      //-webkit-box-shadow: inset 0 0 5px #eaeaea
+      border-bottom: 1px solid #eaeaea
+      //border-radius: 10px
+
+      .img
+        float: left
+        width: 55px
+        height: 55px
+        background: #333
+        margin: 10px
+
+      .info
+        float: left
+        height: 55px
+        margin: 10px
+
+        .name
+          height: 40px
+          line-height: 40px
+          font-size: 30px
+
+        .address
+          height: 15px
+          line-height: 15px
+          font-size:  14px
+          color: #777
+
+
 
 
 #place
   .header
     .picture
+      border-radius: 10px
+      border: 1px solid #eaeaea
+      -webkit-box-shadow: inset 0 0 7px #eaeaea
+      background: #fff
+      padding: 5px
       position: relative
       img
         max-width: 100%
@@ -44,7 +72,7 @@
         color: #fff
         opacity: 0.8
         padding: 10px
-
+        margin-left: 5px
 
   .form
 
@@ -67,8 +95,6 @@
 
   #repost-form
     display: none
-
-
 
   #checker
     display: none
