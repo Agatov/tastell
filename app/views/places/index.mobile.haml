@@ -1,7 +1,11 @@
+#find-places-about
+  Выберите место в котором вы находитесь. Для этого ваш телефон должен поддерживать
+  геолокацию и она должна быть включена в настройках.
+
 #find_places
   Найти места
 
-%ul#places-list
+%ul#places-list.hide
 
 %script#place-list-item-template{type: "text/template"}
   %a{href: '/places/<%= id %>'.html_safe}

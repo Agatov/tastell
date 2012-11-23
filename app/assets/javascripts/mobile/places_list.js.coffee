@@ -31,6 +31,7 @@ class window.PlacesList
     _.each(@places, (place) =>
       @el.append(place.render().el)
     )
+    @el.show()
 
 
 class window.Place
