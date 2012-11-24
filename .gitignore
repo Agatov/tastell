@@ -19,6 +19,5 @@ db/schema.rb
 config/database.yml
 db/sphinx
 config/development.sphinx.conf
-Gemfile.lock
 .idea
 *.DS_Store
