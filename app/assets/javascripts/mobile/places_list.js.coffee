@@ -14,8 +14,13 @@ class window.PlacesList
     @geolocator.initialize()
 
   get_places: (data) ->
+    if @geolocator.latlng()
+      url = "/places.json?latlng=#{@geolocator.latlng()}"
+    else
+      url = "/places.json"
+
     $.get(
-      "/places.json?latlng=#{@geolocator.latlng()}",
+      url,
     (data) =>
       @add_place(place) for place in data.places
       @render()
