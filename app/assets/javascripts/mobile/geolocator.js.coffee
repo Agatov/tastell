@@ -14,8 +14,6 @@ class window.Geolocator
 
           $(@).trigger("latlng_ready")
 
-          console.log("#{position.coords.latitude} - #{position.coords.longitude}")
-
         (error) =>
 
           @error = error
