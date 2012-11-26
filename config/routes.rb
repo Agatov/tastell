@@ -1,6 +1,6 @@
 Tastell::Application.routes.draw do
 
-  root to: "authentications#new"
+  root to: "pages#index"
 
   resources :places, only: [:index, :show]
   resources :orders, only: [:index, :new, :create] do
