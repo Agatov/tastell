@@ -2,6 +2,8 @@ Tastell::Application.routes.draw do
 
   root to: "pages#index"
 
+  match '/auth/:provider/callback', to: 'authentications#create'
+
   resources :places, only: [:index, :show]
   resources :orders, only: [:index, :new, :create] do
     get :check, on: :member
