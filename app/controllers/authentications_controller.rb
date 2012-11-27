@@ -9,7 +9,11 @@ class AuthenticationsController < ApplicationController
     @auth = request.env['omniauth.auth']
     @new_user = true
 
-    @authentication = Authentication.find_or_create_by_provider_and_uid(@auth['provider'], @auth['uid'])
+    #####
+    # ALARM
+    # Этот грязный код - только для ВК
+    #####
+    @authentication = Authentication.find_or_create_by_provider_cd_and_uid(0, @auth['uid'])
     @authentication.token = @auth['credentials']['token']
 
     if @authentication.user.present?
