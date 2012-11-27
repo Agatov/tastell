@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     #request.format = :mobile unless request.format == :json
 
     if request.user_agent =~ /Mobile|webOS/
-      request.format = :mobile
+      request.format = :mobile unless request.format == :json
 
       if request.fullpath == root_path
         redirect_to new_authentication_path
