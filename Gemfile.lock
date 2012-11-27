@@ -111,6 +111,16 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.2)
     oj (1.4.3)
+    omniauth (1.1.1)
+      hashie (~> 1.2)
+      rack
+    omniauth-oauth2 (1.1.1)
+      oauth2 (~> 0.8.0)
+      omniauth (~> 1.0)
+    omniauth-vkontakte (1.1.0)
+      multi_json
+      omniauth (~> 1.1.0)
+      omniauth-oauth2 (~> 1.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -200,6 +210,8 @@ DEPENDENCIES
   haml-rails
   jquery-rails
   mysql2
+  omniauth
+  omniauth-vkontakte
   rails (= 3.2.8)
   rmagick
   sass-rails (~> 3.2.3)

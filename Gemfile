@@ -31,6 +31,8 @@ gem 'simple_form'
 gem 'geocoder'
 
 gem 'vkontakte_api'
+gem 'omniauth'
+gem 'omniauth-vkontakte'
 
 gem 'thinking-sphinx'
 
@@ -46,3 +48,5 @@ gem 'unicorn'
 
 # To use debugger
 # gem 'debugger'
+
+
