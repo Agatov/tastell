@@ -3,7 +3,8 @@ class ApplicationController < ActionController::Base
 
   def mobile_device?
 
-    #request.format = :mobile unless request.format == :json
+    request.format = :mobile unless request.format == :json
+    return false
 
     if request.user_agent =~ /Mobile|webOS/
       request.format = :mobile unless request.format == :json
