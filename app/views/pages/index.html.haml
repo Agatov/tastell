@@ -1,0 +1,21 @@
+#info
+  .about
+    Tastell - это сервис социальных рекомендаций интересных кафе и ресторанов.
+  .buttons
+    .button
+      Как это работает?
+
+
+%h1
+  Популярные заведения
+
+
+#best-places
+  %ul#places-list
+    - @places.each do |place|
+      %li.place
+        .image
+          %a{href: place_path(place)}
+            = image_tag place.avatar_url(:big)
+        .info
+          = place.name
