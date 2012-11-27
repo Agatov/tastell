@@ -3,6 +3,7 @@ class AuthenticationsController < ApplicationController
   before_filter :mobile_device?
 
   def new
+
   end
 
   def create
@@ -35,12 +36,12 @@ class AuthenticationsController < ApplicationController
       @authentication.save
 
       login @user
+    end
 
-      if request.format == :mobile
-        redirect_to places_path
-      else
-        render json: "OLOLOLO"
-      end
+    if request.format == :mobile
+      redirect_to places_path
+    else
+      render json: "OLOLOLO"
     end
   end
 
