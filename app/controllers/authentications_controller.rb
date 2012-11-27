@@ -36,7 +36,7 @@ class AuthenticationsController < ApplicationController
 
       login @user
 
-      if format.mobile
+      if request.format == :mobile
         redirect_to places_path
       else
         render json: "OLOLOLO"
