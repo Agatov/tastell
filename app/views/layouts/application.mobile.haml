@@ -11,6 +11,14 @@
         .title
           tastell
       .hr-shadow
+      - if user_logged_in?
+        #user-info
+          .avatar
+            = image_tag current_user.avatar_url(:mini)
+          .name
+            = current_user.full_name
+
+
       #content
         .padder
           = yield

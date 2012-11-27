@@ -1,6 +1,8 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
+
+
   def mobile_device?
 
     request.format = :mobile unless request.format == :json
@@ -17,5 +19,17 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  #helper_method :mobile_device?
+  def current_user
+    if session[:user_id] and !session[:user_id].empty?
+      @current_user ||= User.find(session[:user_id])
+    end
+  end
+
+  def user_logged_in?
+    return false if session[:user_id] and session[:user_id].empty?
+    return session[:user_id] ? true : false
+  end
+
+  helper_method :current_user
+  helper_method :user_logged_in?
 end
