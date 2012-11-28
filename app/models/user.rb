@@ -15,6 +15,7 @@ class User < ActiveRecord::Base
   end
 
   def can_create_order?
+    return true if orders.confirmed.empty?
     orders.confirmed.last.created_at < 2.hours.ago(Time.now)
   end
 end

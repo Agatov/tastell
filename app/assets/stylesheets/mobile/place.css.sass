@@ -111,8 +111,20 @@
     display: none
 
     .waiting
-      @include label
-      display: none
+      .state
+        @include label
+        margin-bottom: 40px
+
+
+      .spin-block
+        text-align: center
+        padding: 10px
+        min-height: 50px
+        line-height: 50px
+        display: block
+
+        .spin
+          margin-top: 15px
 
     .success
       @include label
