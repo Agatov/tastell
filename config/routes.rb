@@ -5,9 +5,10 @@ Tastell::Application.routes.draw do
   match '/auth/:provider/callback', to: 'authentications#create'
 
   resources :places, only: [:index, :show]
-  resources :orders, only: [:index, :new, :create] do
+  resources :orders, only: [:create] do
     get :check, on: :member
   end
+
   resources :users, only: [:index]
   resources :authentications, only: [:new, :create]
 
