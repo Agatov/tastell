@@ -6,7 +6,7 @@ module ApplicationHelper
         url: "http://#{request.host}/places/#{order.place.id}?o=#{order.id}",
         title: CGI.escape("I get 30% sale to #{order.place.name} with Gurmap"),
         description: CGI.escape("OLOLOLLO"),
-        image: "http://#{request.host}/images/logo.png"
+        image: "http://#{request.host}/#{order.place.avatar_url(:small)}"
     }
   end
 
