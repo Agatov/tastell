@@ -4,7 +4,7 @@ module ApplicationHelper
   def order_social_params(order)
     return {
         url: "http://#{request.host}/places/#{order.place.id}?o=#{order.id}",
-        title: CGI.escape("Рекомендую посетить #{order.place.name}"),
+        title: CGI.escape("#{order.place.name}"),
         description: CGI.escape(order.content),
         image: "http://#{request.host}/#{order.place.avatar_url(:small)}"
     }
