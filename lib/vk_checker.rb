@@ -42,8 +42,7 @@ class VkChecker
   end
 
   def expected_url
-    "10.0.20.41"
-    #"gurmap.ru/places/#{order.place_id}##{order.id}"
+    "gurmap.ru/places/#{order.place_id}?o=#{order.id}"
   end
 
 end
