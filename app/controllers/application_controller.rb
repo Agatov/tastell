@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
-
+  rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   def mobile_device?
 
@@ -17,6 +16,18 @@ class ApplicationController < ActionController::Base
 
       true
     end
+  end
+
+  def authenticate_user!
+    not_found unless user_signed_in?
+  end
+
+  def not_found
+    raise ActiveRecord::RecordNotFound.new('not found')
+  end
+
+  def render_not_found
+    render json: {status: :not_found}
   end
 
   def current_user
