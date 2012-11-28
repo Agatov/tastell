@@ -6,6 +6,8 @@ class Order < ActiveRecord::Base
 
   as_enum :state, [:fresh, :waiting, :confirmed, :rejected], prefix: true
 
+  scope :confirmed, where(state_cd: states(:confirmed))
+
   def check
     if VkChecker.new(self).check.success?
       confirm

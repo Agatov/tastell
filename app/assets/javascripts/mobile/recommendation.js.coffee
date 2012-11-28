@@ -35,7 +35,7 @@ class window.Recommendation
 
   recommend: ->
     $.post(
-      "/orders",
+      "/orders.json",
       @params(),
       @after_recommend
     )

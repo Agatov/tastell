@@ -9,4 +9,12 @@ class User < ActiveRecord::Base
   def full_name
     "#{first_name} #{last_name}"
   end
+
+  def build_order(params)
+    orders.create!(params) if can_create_order?
+  end
+
+  def can_create_order?
+    orders.confirmed.last.created_at < 2.hours.ago(Time.now)
+  end
 end
