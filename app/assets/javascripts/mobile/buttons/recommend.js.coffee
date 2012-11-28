@@ -6,5 +6,6 @@ class window.RecommendButton extends Button
     recommendation = new Recommendation()
 
     $(recommendation).bind("ready", @ready)
+    $(recommendation).bind("fail", @fail)
 
     recommendation.recommend()

@@ -31,7 +31,6 @@ class window.OrderChecker
 
   check: ->
     @checks_num += 1
-    console.log("checking... (#{@checks_num})")
 
     $.get(
       @check_url(),

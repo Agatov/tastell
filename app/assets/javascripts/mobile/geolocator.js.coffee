@@ -24,7 +24,7 @@ class window.Geolocator
             3: 'Таймаут соединения'
           }
 
-          console.log("Ошибка #{errors[error.code]} (#{error.code})")
+          #console.log("Ошибка #{errors[error.code]} (#{error.code})")
 
         {
           enableHighAccuracy: true,

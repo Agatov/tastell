@@ -5,7 +5,7 @@ class window.Button
     @text = null
     @spin = null
 
-    _.bindAll(@, "onclick", "waiting_for_response", "ready")
+    _.bindAll(@, "onclick", "waiting_for_response", "ready", "fail")
     @el.bind("click", @onclick)
 
     @initialize()
@@ -14,7 +14,6 @@ class window.Button
 
 
   onclick: ->
-    console.log("It clicks me!!")
 
   waiting_for_response: ->
 
@@ -29,10 +28,12 @@ class window.Button
       radius: 5
     })
 
-    #@el.addClass("waiting")
-
   ready: ->
     @el.hide()
+    @spin.remove()
+    @el.text(@text)
+
+  fail: ->
     @spin.remove()
     @el.text(@text)
 

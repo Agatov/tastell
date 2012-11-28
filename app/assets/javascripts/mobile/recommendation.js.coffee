@@ -3,6 +3,7 @@ class window.Recommendation
   constructor: ->
     @recommend_form = $("#recommend-form")
     @recommend_area = $("#recommend-area")
+    @error_screen = $("#error")
     @repost_form = $("#repost-form")
     @repost_button = $("#repost")
 
@@ -26,12 +27,18 @@ class window.Recommendation
     params
 
   after_recommend: (data) ->
-    $(@).trigger("ready")
-    @recommend_form.hide()
-    @repost_button.attr("href", data.url)
-    @repost_button.attr("order-id", data.order_id)
-    @repost_form.show()
-    $("body").animate({scrollTop: 0})
+    if data.status == 'ok'
+      $(@).trigger("ready")
+      @recommend_form.hide()
+      @repost_button.attr("href", data.url)
+      @repost_button.attr("order-id", data.order_id)
+      @repost_form.show()
+      $("body").animate({scrollTop: 0})
+    else
+      $(@).trigger("fail")
+      @recommend_form.hide()
+      @error_screen.show()
+
 
   recommend: ->
     $.post(
