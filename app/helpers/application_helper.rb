@@ -4,8 +4,8 @@ module ApplicationHelper
   def order_social_params(order)
     return {
         url: "http://#{request.host}/places/#{order.place.id}?o=#{order.id}",
-        title: CGI.escape("I get 30% sale to #{order.place.name} with Gurmap"),
-        description: CGI.escape("OLOLOLLO"),
+        title: CGI.escape("Рекомендую посетить #{order.place.name}"),
+        description: CGI.escape(order.content),
         image: "http://#{request.host}/#{order.place.avatar_url(:small)}"
     }
   end
