@@ -6,7 +6,7 @@ module ApplicationHelper
         url: "http://#{request.host}/places/#{order.place.id}?o=#{order.id}",
         title: CGI.escape("#{order.place.name}"),
         description: CGI.escape(order.content),
-        image: "http://#{request.host}/#{order.place.avatar_url(:small)}"
+        image: "http://#{request.host.gsub("m.", "")}/#{order.place.avatar_url(:small)}"
     }
   end
 
