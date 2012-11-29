@@ -3,23 +3,14 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
   def mobile_device?
-
-    request.format = :mobile unless request.format == :json
-    return false
-
-    if request.user_agent =~ /Mobile|webOS/
+    if request.host.include?("m.")
       request.format = :mobile unless request.format == :json
-
-      if request.fullpath == root_path
-        redirect_to new_authentication_path
-      end
-
-      true
+      redirect_to new_authentication_path if request.fullpath == root_path
     end
   end
 
   def authenticate_user!
-    not_found unless user_signed_in?
+    not_found unless user_logged_in?
   end
 
   def not_found
