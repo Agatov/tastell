@@ -8,6 +8,8 @@ class Order < ActiveRecord::Base
 
   scope :confirmed, where(state_cd: states(:confirmed))
 
+  before_create :can_be_created?
+
   def check
     if VkChecker.new(self).check.success?
       confirm
@@ -26,5 +28,11 @@ class Order < ActiveRecord::Base
 
   def wait
     update_attributes(state: :waiting) unless state_waiting?
+  end
+
+  private
+
+  def can_be_created?
+    raise OrderExceptions::TooManyOrdersError.new unless user.can_create_order?
   end
 end
