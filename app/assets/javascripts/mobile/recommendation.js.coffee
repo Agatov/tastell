@@ -4,6 +4,8 @@ class window.Recommendation
     @recommend_form = $("#recommend-form")
     @recommend_area = $("#recommend-area")
     @error_screen = $("#error")
+    @unknown_error_screen = $("#error .unknown")
+    @duplicate_error_screen = $("#error .duplicate")
     @repost_form = $("#repost-form")
     @repost_button = $("#repost")
 
@@ -34,10 +36,16 @@ class window.Recommendation
       @repost_button.attr("order-id", data.order_id)
       @repost_form.show()
       $("body").animate({scrollTop: 0})
+    else if data.status == 'duplicate'
+      $(@).trigger("fail")
+      @recommend_form.hide()
+      @error_screen.show()
+      @duplicate_error_screen.show()
     else
       $(@).trigger("fail")
       @recommend_form.hide()
       @error_screen.show()
+      @unknown_error_screen.show()
 
 
   recommend: ->

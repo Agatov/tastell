@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   rescue_from OrderExceptions::TooManyOrdersError, with: :duplicated_order
 
   def create
-    current_user.orders.create!(params[:order])
+    order = current_user.orders.create!(params[:order])
     render json: {status: :ok, order_id: order.id, url: vk_social_url(order)}
   end
 
