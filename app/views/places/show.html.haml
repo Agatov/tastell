@@ -26,7 +26,7 @@
 
 #place-content
   .story
-    = @place.description.html_safe
+    = @place.description.html_safe unless @place.description.nil?
 
 
 #balloon-template{style: 'display: none'}
