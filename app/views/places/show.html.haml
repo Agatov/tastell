@@ -18,11 +18,30 @@
         %div
           = image_tag photo.image_url(:full)
 
--#place-info
-  .item
-    Телефон: 525-13-79
-  .item
-    Кухня: Европейская, Американская
+#place-info
+  %table
+
+    %tr
+      %td
+        Средний чек
+      %td
+        = "#{@place.average_check} рублей"
+    %tr
+      %td
+        Кухня
+      %td
+        = @place.kitchen
+    %tr
+      %td
+        Время работы
+      %td
+        = @place.schedule
+    %tr
+      %td
+        Телефон
+      %td
+        = @place.public_phone
+
 
 #place-content
   .story
