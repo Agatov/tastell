@@ -16,6 +16,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+    @last_orders = @place.orders
 
     respond_to do |format|
       format.html {
