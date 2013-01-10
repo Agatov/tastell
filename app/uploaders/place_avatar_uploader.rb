@@ -21,20 +21,8 @@ class PlaceAvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [280, 210]
   end
 
-  version :big do
-    process :resize_to_fill => [360, 270]
-  end
-
-  version :large do
-    process :resize_to_fill => [580, 440]
-  end
-
-  version :tall do
-    process :resize_to_fill => [280, 440]
-  end
-
   version :wide do
-    process :resize_to_fill => [580, 190]
+    process :resize_to_fill => [360, 190]
   end
 
   version :small do

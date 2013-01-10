@@ -1,7 +1,18 @@
 %ul#places-list
   - @places.each do |place|
     %li.place
-      .image
-        = image_tag place.avatar_url(:web_thumb)
+      %a.image{href: place_path(place)}
+        = image_tag place.avatar_url(:wide)
       .info
-        = place.name
+        .name
+          = link_to place.name, place_path(place)
+        .price
+          = '~ 3500 Р'
+      .kitchen
+        Кухня:
+        = 'Русская, Японская, Татарская'
+
+      -#.image
+        = image_tag place.avatar_url(:web_thumb)
+        .info
+        = link_to place.name, place_path(place)
