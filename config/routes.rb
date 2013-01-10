@@ -10,6 +10,7 @@ Tastell::Application.routes.draw do
   end
 
   resources :users, only: [:index]
+  resource :profile, only: [:show, :edit, :update]
   resources :authentications, only: [:new, :create]
 
 
