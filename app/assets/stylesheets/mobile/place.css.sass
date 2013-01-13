@@ -8,53 +8,57 @@
 #find-places-about
   @include label
 
-
 #places-list
-  background: #fff
-  border-radius: 10px
-  border: 1px solid #eaeaea
-  -webkit-box-shadow: inset 0 0 7px #eaeaea
-  padding: 10px 0
-  &.hide
-    display: none
   .place
-    a
-      height: 75px
-      color: #333
-      text-decoration: none
+    width: 360px
+    margin: 10px auto
+    width: 380px
+    height: 270px
+    border: 1px solid #e9e9e9
+    background: #fff
+
+    .image
       display: block
-      padding: 0 10px
-      //background: -webkit-linear-gradient(top, #f7f7f7, #eaeaea)
+      width: 380px
+      height: 210px
+      padding: 10px
       background: #fff
-      //-webkit-box-shadow: inset 0 0 5px #eaeaea
-      border-bottom: 1px solid #eaeaea
-      //border-radius: 10px
+      box-sizing: border-box
 
-      .img
+      img
+        width: 360px
+        height: 190px
+
+    .info
+      width: 380px
+      height: 30px
+      background: #fff
+      padding: 0px 10px
+      box-sizing: border-box
+
+      .name
+        height: 20px
         float: left
-        width: 55px
-        height: 55px
-        background: #333
-        margin: 10px
+        a
+          font-size: 20px
+          color: #000
+          text-decoration: none
+          font-family: Helvetica
+          &:hover
+            color: #0081ad
 
-      .info
-        float: left
-        width: 180px
-        height: 55px
-        margin: 10px
+      .price
+        color: #666
+        height: 20px
+        float: right
 
-        .name
-          height: 25px
-          line-height: 25px
-          font-size: 24px
-
-        .address
-          height: 30px
-          font-size: 12px
-          color: #777
-
-
-
+    .kitchen
+      width: 380px
+      height: 20px
+      padding: 0px 10px
+      box-sizing: border-box
+      font-size: 14px
+      color: #777
 
 #place
   .header

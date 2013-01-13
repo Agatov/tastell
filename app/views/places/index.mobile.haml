@@ -2,12 +2,28 @@
   Выберите место в котором вы находитесь. Для этого ваш телефон должен поддерживать
   геолокацию и она должна быть включена в настройках.
 
-#find_places
+
+%ul#places-list
+  - @places.each do |place|
+    %li.place
+      %a.image{href: place_path(place)}
+        = image_tag place.avatar_url(:wide)
+      .info
+        .name
+          = link_to place.name, place_path(place)
+        .price
+          = '~ 3500 Р'
+      .kitchen
+        Кухня:
+        = 'Русская, Японская, Татарская'
+
+
+-#find_places
   Найти места
 
-%ul#places-list.hide
+-#%ul#places-list.hide
 
-%script#place-list-item-template{type: "text/template"}
+-#%script#place-list-item-template{type: "text/template"}
   %a{href: '/places/<%= id %>'.html_safe}
     .img
       %img{src: "<%= logo_mini_url %>".html_safe}
