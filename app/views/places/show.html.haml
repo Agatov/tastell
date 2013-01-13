@@ -47,16 +47,6 @@
   .story
     = @place.description.html_safe unless @place.description.nil?
 
-#place-comments
-  - i = 0
-  - @last_orders.each do |order|
-    - i += 1
-    .comment{class: i.even? ? 'right' : ''}
-      .user-avatar
-        = image_tag order.user.avatar_url(:mini)
-      .content
-        = order.content
-
 
 #balloon-template{style: 'display: none'}
   .balloon

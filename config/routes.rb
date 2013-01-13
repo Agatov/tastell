@@ -1,6 +1,6 @@
 Tastell::Application.routes.draw do
 
-  root to: "pages#index"
+  root to: 'places#index'
 
   match '/auth/:provider/callback', to: 'authentications#create'
 
