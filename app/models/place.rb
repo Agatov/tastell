@@ -29,4 +29,9 @@ class Place < ActiveRecord::Base
   def logo_mini_url
     logo_url(:mini) if logo?
   end
+
+  # @param [Account] account
+  def can_be_changed_by?(account)
+    account.id == account_id
+  end
 end
