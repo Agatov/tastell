@@ -15,7 +15,7 @@ class Account::PlacesController < AccountsController
   end
 
   def create
-    @place = Place.new(params[:place])
+    @place = current_account.places.build(params[:place])
 
     respond_to do |format|
       if @place.save

@@ -1,3 +1,7 @@
+- if @place.invalid?
+  %legend
+    = @place.errors.as_json
+
 = simple_form_for @place, html: {class: 'form-vertical'}, url: url do |f|
 
   = f.input :name, input_html: { class: 'input-block-level' }
