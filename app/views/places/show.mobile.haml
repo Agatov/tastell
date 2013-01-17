@@ -39,3 +39,32 @@
     .success
       Ура! вы получили скидку!
     .error
+
+#place-info.label
+  %table
+
+    %tr
+      %td
+        Средний чек
+      %td
+        = "#{@place.average_check} рублей"
+    %tr
+      %td
+        Кухня
+      %td
+        = @place.kitchen
+    %tr
+      %td
+        Время работы
+      %td
+        = @place.schedule
+    %tr
+      %td
+        Телефон
+      %td
+        = @place.public_phone
+
+
+#place-content
+  .story
+    = @place.description.html_safe unless @place.description.nil?

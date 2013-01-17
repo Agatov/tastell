@@ -21,32 +21,39 @@
 #place-info
   %table
 
-    %tr
-      %td
-        Средний чек
-      %td
-        = "#{@place.average_check} рублей"
-    %tr
-      %td
-        Кухня
-      %td
-        = @place.kitchen
-    %tr
-      %td
-        Время работы
-      %td
-        = @place.schedule
-    %tr
-      %td
-        Телефон
-      %td
-        = @place.public_phone
+    - unless @place.average_check.nil?
+      %tr
+        %td
+          Средний чек
+        %td
+          = "#{@place.average_check} рублей"
+
+    - unless @place.kitchen.nil?
+      %tr
+        %td
+          Кухня
+        %td
+          = @place.kitchen
+
+    - unless @place.schedule.nil?
+      %tr
+        %td
+          Время работы
+        %td
+          = @place.schedule
+
+    - unless @place.public_phone.nil?
+      %tr
+        %td
+          Телефон
+        %td
+          = @place.public_phone
 
 
-#place-content
-  .story
-    = @place.description.html_safe unless @place.description.nil?
-
+- unless @place.description.nil?
+  #place-content
+    .story
+      = @place.description.html_safe
 
 #balloon-template{style: 'display: none'}
   .balloon
