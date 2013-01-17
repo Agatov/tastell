@@ -1,14 +1,16 @@
 = simple_form_for @place, html: {class: 'form-vertical'}, url: url do |f|
 
-  = f.input :name
-  = f.input :address
+  = f.input :name, input_html: { class: 'input-block-level' }
+  = f.input :address, input_html: { class: 'input-block-level' }
+  = f.input :schedule, input_html: { class: 'input-block-level' }
+  = f.input :public_phone, input_html: { class: 'input-block-level' }
+  = f.input :kitchen, input_html: { class: 'input-block-level' }
+  = f.input :phone, input_html: { class: 'input-block-level' }
   = f.input :average_check
-  = f.input :schedule
-  = f.input :public_phone
-  = f.input :kitchen
-  = f.input :phone
   = f.input :avatar
+  = image_tag @place.avatar_url(:wide)
   = f.input :logo
+  = image_tag @place.logo_url(:thumb)
 
   .form-actions
     = f.submit 'Готово', class: ['btn', 'btn-large', 'btn-info']

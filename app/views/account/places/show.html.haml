@@ -1,7 +1,7 @@
 .row
-  .span3
-    -# image_tag @place.avatar_url(:thumb)
-  .span9
+  .span2
+    = image_tag @place.logo_url(:thumb)
+  .span10
     %h1
       = @place.name
       %small
@@ -10,10 +10,8 @@
 
     %ul.nav.nav-pills
       %li
-        = link_to 'Фотографии', root_path
+        = link_to 'Фотографии', account_place_photos_path(@place)
       %li
         = link_to 'Основное', edit_account_place_path(@place)
-      %li
-        = link_to 'Теги', root_path
       %li
         = link_to 'Описание', description_account_place_path(@place)

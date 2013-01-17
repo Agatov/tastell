@@ -1,6 +1,8 @@
 %legend
   Мои заведения
 
+  = link_to 'Добавить', new_account_place_path, class: ['btn', 'bnt-large'], style: 'float: right'
+
 %table.table
   %thead
     %th
@@ -18,5 +20,3 @@
           = place.address
         %td
           = link_to 'Редактировать', edit_account_place_path(place)
-          %br
-          = link_to 'Удалить', account_places_path
