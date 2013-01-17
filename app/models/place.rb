@@ -4,6 +4,7 @@ class Place < ActiveRecord::Base
 
   has_many :orders
   has_many :photos
+  belongs_to :account
 
   mount_uploader :avatar, PlaceAvatarUploader
   mount_uploader :logo, PlaceLogoUploader
