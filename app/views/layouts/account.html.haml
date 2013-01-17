@@ -5,6 +5,23 @@
     = stylesheet_link_tag    "account", :media => "all"
     = javascript_include_tag "account"
   %body
+
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %ul.nav
+            %li
+              = link_to 'Заведения', account_places_path
+          %ul.nav.pull-right
+            %li
+              - if account_signed_in?
+                = link_to 'Выйти', logout_accounts_path, method: :delete
+              - else
+                = link_to 'Войти', login_accounts_path
+
+
+
+
     .container
       .row
         .span12

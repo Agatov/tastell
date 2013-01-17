@@ -13,6 +13,12 @@ Tastell::Application.routes.draw do
   resource :profile, only: [:show, :edit, :update]
   resources :authentications, only: [:new, :create]
 
+  resources :accounts, only: [] do
+    get :login, on: :collection
+    post :authenticate, on: :collection
+    delete :logout, on: :collection
+  end
+
 
   namespace :account do
     resources :places do

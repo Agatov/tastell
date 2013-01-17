@@ -1,6 +1,4 @@
-class Account::PlacesController < ApplicationController
-
-  layout "account"
+class Account::PlacesController < AccountsController
 
   before_filter :find_place, only: [:show, :description, :edit, :update, :destroy]
 

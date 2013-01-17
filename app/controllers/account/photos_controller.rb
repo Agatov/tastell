@@ -1,5 +1,4 @@
-class Account::PhotosController < ApplicationController
-  layout "account"
+class Account::PhotosController < AccountsController
 
   before_filter :find_place
   before_filter :find_photo, only: [:destroy]
