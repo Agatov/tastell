@@ -42,6 +42,10 @@ class AccountsController < ApplicationController
     !session[:account_id].nil?
   end
 
+  def autheticate_account!
+    redirect_to places_path unless account_signed_in?
+  end
+
   helper_method :current_account
   helper_method :account_signed_in?
 end

@@ -1,6 +1,6 @@
 class Account::PlacesController < AccountsController
 
-  #before_filter :find_place, only: [:show, :description, :edit, :update, :destroy]
+  before_filter :autheticate_account!
 
   def index
     @places = current_account.places.order(:id)

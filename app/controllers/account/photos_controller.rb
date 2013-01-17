@@ -2,6 +2,7 @@ class Account::PhotosController < AccountsController
 
   before_filter :find_place
   before_filter :find_photo, only: [:destroy]
+  before_filter :autheticate_account!
 
   # Список всех фотографий
   def index
