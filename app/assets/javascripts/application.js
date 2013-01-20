@@ -3,3 +3,5 @@
 //= require slides.jquery
 
 //= require application/initializer
+//= require application/order
+
