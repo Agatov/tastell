@@ -16,7 +16,7 @@ class PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
-    @last_orders = @place.orders
+    @last_orders = @place.orders.only_moderated.order('created_at desc')
 
     respond_to do |format|
       format.html {

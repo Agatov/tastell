@@ -7,6 +7,7 @@ class Order < ActiveRecord::Base
   as_enum :state, [:fresh, :waiting, :confirmed, :rejected], prefix: true
 
   scope :confirmed, where(state_cd: states(:confirmed))
+  scope :only_moderated, where(moderated: true)
 
   before_create :can_be_created?
 
