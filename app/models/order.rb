@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessible :content, :user_id, :place_id, :state, :state_cd
+  attr_accessible :content, :user_id, :place_id, :state, :state_cd, :moderated
 
   belongs_to :user
   belongs_to :place
@@ -18,6 +18,14 @@ class Order < ActiveRecord::Base
     end
 
     self
+  end
+
+  def moderated?
+    moderated
+  end
+
+  def moderate
+    update_attributes(moderated: true)
   end
 
   protected
