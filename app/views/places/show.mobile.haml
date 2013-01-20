@@ -1,22 +1,29 @@
 #place
+
+  .header
+    = @place.name
+
+
   .header
     .picture
       %img{src: @place.avatar_url(:thumb)}
-      .name
+      -#.name
         = @place.name
 
 
 
-  .form#recommend-form
+  -#.form#recommend-form
     .label
-      Расскажите о заведении своим друзьям
+      Поделитесь мнением о заведении о получите комплимент.
 
-    %textarea.recommend-area#recommend-area
+
+    %input#table-number{type: :text, placeholder: '№ Стола'}
+    %textarea.recommend-area#recommend-area{placeholder: 'Просто напишите вашу рекомендацию здесь...'}
 
     .recommend-button#recommend
       Рекомендовать
 
-  .form#repost-form
+  -#.form#repost-form
     .label
       Ваш отзыв учтен. Осталось рассказать о нем в VK
       и получить скидку
@@ -24,13 +31,13 @@
       Рассказать в VK
 
 
-  #error
+  -#error
     .duplicate
       Вы можете делать лишь один заказ в сутки
     .unknown
       Внимание, произошла ошибка. Мы уже знаем о ней и работаем над исправлением
 
-  #checker
+  -#checker
     .waiting
       .state
         Ожидание
@@ -42,29 +49,36 @@
 
 #place-info.label
   %table
+    - unless @place.average_check.nil?
+      %tr
+        %td
+          Средний чек
+        %td
+          = "#{@place.average_check} рублей"
 
-    %tr
-      %td
-        Средний чек
-      %td
-        = "#{@place.average_check} рублей"
-    %tr
-      %td
-        Кухня
-      %td
-        = @place.kitchen
-    %tr
-      %td
-        Время работы
-      %td
-        = @place.schedule
-    %tr
-      %td
-        Телефон
-      %td
-        = @place.public_phone
+    - unless @place.kitchen.nil?
+      %tr
+        %td
+          Кухня
+        %td
+          = @place.kitchen
+
+    - unless @place.schedule.nil?
+      %tr
+        %td
+          Время работы
+        %td
+          = @place.schedule
+
+    - unless @place.public_phone.nil?
+      %tr
+        %td
+          Телефон
+        %td
+          = @place.public_phone
 
 
-#place-content
-  .story
-    = @place.description.html_safe unless @place.description.nil?
+- unless @place.description.nil?
+  #place-content
+    .story
+      = @place.description.html_safe

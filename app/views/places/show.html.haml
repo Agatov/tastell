@@ -10,12 +10,9 @@
 
 #place-photos
   .block
-    .arrow-left
-    .arrow-right
     .photos
       - @place.photos.each do |photo|
-
-        %div
+        .photo-container
           = image_tag photo.image_url(:full)
 
 #place-info
@@ -81,6 +78,7 @@
             Отправить
 
     #vk-share-screen
+
 
     #comment-sent.simple-text
       Ваш комментарий оставлен. В случае одобрения модератором, он будет опубликован на сайте.

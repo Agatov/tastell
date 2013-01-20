@@ -3,8 +3,9 @@ $ ->
     container: 'photos',
     generatePagination: false,
     generateNextPrev: false,
-    next: 'arrow-right',
-    prev: 'arrow-left'
+    next: 'photo-container',
+    prev: 'arrow-left',
+    play: 5000
   })
 
 

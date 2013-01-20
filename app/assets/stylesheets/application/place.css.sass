@@ -1,3 +1,5 @@
+@import "_bourbon.scss"
+
 #place-header
   height: 100px
   .avatar
@@ -38,6 +40,9 @@
     .photos
       width: 880px
       height: 480px
+
+      .photo-container
+        cursor: pointer
 
     .arrow-left
       position: absolute
@@ -198,7 +203,7 @@
             font-size: 16px
             width: 96px
             height: 36px
-            background: #0081ad
+            @include linear-gradient(top, #0091BE, #0081ad, $fallback: #0081ad)
             color: #fff
             border: 0px solid
             cursor: pointer
