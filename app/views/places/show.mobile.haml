@@ -7,45 +7,6 @@
   .header
     .picture
       %img{src: @place.avatar_url(:thumb)}
-      -#.name
-        = @place.name
-
-
-
-  -#.form#recommend-form
-    .label
-      Поделитесь мнением о заведении о получите комплимент.
-
-
-    %input#table-number{type: :text, placeholder: '№ Стола'}
-    %textarea.recommend-area#recommend-area{placeholder: 'Просто напишите вашу рекомендацию здесь...'}
-
-    .recommend-button#recommend
-      Рекомендовать
-
-  -#.form#repost-form
-    .label
-      Ваш отзыв учтен. Осталось рассказать о нем в VK
-      и получить скидку
-    %a.repost-button#repost{href: '#'}
-      Рассказать в VK
-
-
-  -#error
-    .duplicate
-      Вы можете делать лишь один заказ в сутки
-    .unknown
-      Внимание, произошла ошибка. Мы уже знаем о ней и работаем над исправлением
-
-  -#checker
-    .waiting
-      .state
-        Ожидание
-      .spin-block
-        .spin
-    .success
-      Ура! вы получили скидку!
-    .error
 
 #place-info.label
   %table
@@ -82,3 +43,5 @@
   #place-content
     .story
       = @place.description.html_safe
+
+= render partial: 'places/order'

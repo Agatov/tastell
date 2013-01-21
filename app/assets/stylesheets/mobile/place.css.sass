@@ -87,28 +87,31 @@
       padding: 10px
       margin-left: 5px
 
+#place-order
   .form
 
-    .label
-      @include label
+  .label
+    @include label
+    @include label-blue
+    text-align: center
 
-    input
-      @include label
+  input
+    @include label
 
-    .recommend-area
-      width: 100%
-      box-sizing: border-box
-      height: 90px
-      font-size: 18px
-      border: 1px solid #eee
-      @include label
-    .recommend-button
-      margin-top: 25px
-      @include button
+  .recommend-area
+    width: 100%
+    box-sizing: border-box
+    height: 90px
+    font-size: 18px
+    border: 1px solid #eee
+    @include label
+  .recommend-button
+    margin-top: 25px
+    @include button
 
-    .repost-button
-      margin-top: 25px
-      @include button
+  .repost-button
+    margin-top: 25px
+    @include button
 
 
   #repost-form
@@ -150,8 +153,6 @@
 
     .error
       display: none
-
-
 
 #place-info
   margin-top: 25px

@@ -35,7 +35,7 @@ class window.Recommendation
       @repost_button.attr("href", data.url)
       @repost_button.attr("order-id", data.order_id)
       @repost_form.show()
-      $("body").animate({scrollTop: 0})
+      #$("body").animate({scrollTop: 0})
     else if data.status == 'duplicate'
       $(@).trigger("fail")
       @recommend_form.hide()
