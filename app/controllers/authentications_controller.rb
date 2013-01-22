@@ -1,5 +1,6 @@
 class AuthenticationsController < ApplicationController
 
+  layout 'authentication'
   before_filter :mobile_device?
 
   def new
@@ -28,7 +29,6 @@ class AuthenticationsController < ApplicationController
       login @user
     end
 
-    redirect_to places_path if request.format == :mobile
   end
 
   private
