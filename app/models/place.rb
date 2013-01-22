@@ -16,16 +16,16 @@ class Place < ActiveRecord::Base
   acts_as_api
   include ApiV1::Place
 
-  define_index do
-    indexes name
+  #define_index do
+  #  indexes name
+  #
+  #  has "RADIANS(`places`.`latitude`)", as: :latitude, type: :float
+  #  has "RADIANS(`places`.`longitude`)", as: :longitude, type: :float
+  #end
 
-    has "RADIANS(`places`.`latitude`)", as: :latitude, type: :float
-    has "RADIANS(`places`.`longitude`)", as: :longitude, type: :float
-  end
-
-  sphinx_scope(:by_point) { |latlng|
-    {geo: latlng, with: {"@geodist" => 0.0..1000.0}}
-  }
+  #sphinx_scope(:by_point) { |latlng|
+  #  {geo: latlng, with: {"@geodist" => 0.0..1000.0}}
+  #}
 
   def logo_mini_url
     logo_url(:mini) if logo?
