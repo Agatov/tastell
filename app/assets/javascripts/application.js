@@ -4,4 +4,5 @@
 
 //= require application/initializer
 //= require application/order
+//= require application/auth
 
