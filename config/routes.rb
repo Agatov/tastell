@@ -11,7 +11,9 @@ Tastell::Application.routes.draw do
 
   resources :users, only: [:index]
   resource :profile, only: [:show, :edit, :update]
-  resources :authentications, only: [:new, :create]
+  resources :authentications, only: [:new, :create] do
+    delete :sign_out, on: :collection
+  end
 
   resources :accounts, only: [] do
     get :login, on: :collection

@@ -8,6 +8,6 @@ $ ->
 
   if $("#oauth-success")
     if window.opener
-      window.opener.reload()
+      window.opener.location.reload()
 
     window.close()

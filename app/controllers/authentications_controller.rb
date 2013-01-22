@@ -31,6 +31,11 @@ class AuthenticationsController < ApplicationController
 
   end
 
+  def sign_out
+    logout
+    redirect_to :back
+  end
+
   private
 
   # @param [User] user
