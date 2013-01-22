@@ -7,8 +7,7 @@ $ ->
   )
 
   if $("#oauth-success")
-    _oauth = $("#oauth-success")
-    if $.trim(_oauth.text()) == 'true'
+    if $.trim($("#oauth-success").text()) == 'true'
       if window.opener
         window.opener.location.reload()
       window.close()
