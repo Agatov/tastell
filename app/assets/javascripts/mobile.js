@@ -13,7 +13,8 @@
 
 //= require mobile/recommendation
 
-//= require mobile/order_checker
+//= require common/order_checker
+//= require mobile/order_checker_view
 
 //= require mobile/initializer
 

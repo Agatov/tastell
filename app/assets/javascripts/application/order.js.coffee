@@ -10,7 +10,10 @@ $ ->
         if data.status == 'ok'
           $("#comment-form").hide()
           $("#vk-share-screen").show()
-          (window.open(data.url, "vkontakte", "location,top=0")).focus()
+          (window.open(data.url, "vkontakte", "location,top=0,width=800,height=500")).focus()
+
+          order_checker = new OrderChecker(data.order_id)
+          order_checker.initialize()
 
 
 
