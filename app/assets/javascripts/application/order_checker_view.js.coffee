@@ -1,6 +1,6 @@
 class window.OrderCheckerView
 
-  @el_id: '#checker'
+  el_id: '#checker'
 
   constructor: ->
     @el = $(@el_id)
@@ -11,7 +11,6 @@ class window.OrderCheckerView
     @spin = null
 
   initialize: ->
-    console.log(@el)
     @el.show()
     @show_waiting_screen()
 
@@ -22,7 +21,8 @@ class window.OrderCheckerView
     lines: 8,
     radius: 6
     length: 8,
-    width: 2
+    width: 2,
+    speed: 2
     })
 
     @waiting_screen.show()
