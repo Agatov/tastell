@@ -19,9 +19,11 @@ class window.OrderCheckerView
 
     @spin = @waiting_screen.find(".spin")
     @spin.spin({
-    lines: 7,
-    radius: 12
-    length: 16
+      lines: 7,
+      radius: 8
+      length: 12,
+      width: 1,
+      speed: 2
     })
 
     @waiting_screen.show()
