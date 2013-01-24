@@ -3,10 +3,13 @@
   .header
     = @place.name
 
+    - if @place.address
+      .address
+        = @place.address
 
-  .header
-    .picture
-      %img{src: @place.avatar_url(:thumb)}
+
+  .picture
+    %img{src: @place.avatar_url(:thumb)}
 
 #place-info.label
   %table
@@ -39,7 +42,7 @@
           = @place.public_phone
 
 
-- unless @place.description.nil?
+-# unless @place.description.nil?
   #place-content
     .story
       = @place.description.html_safe
@@ -48,5 +51,6 @@
   = render partial: 'places/order'
 - else
   #need-auth
-    %a.oauth-link{href: '/auth/vkontakte'} Авторизуйтесь,
+    %a.oauth-link{href: '/auth/vkontakte'} Войдите через ВКонтакте
+    %br
     чтобы получить возможность делиться комментариями.
