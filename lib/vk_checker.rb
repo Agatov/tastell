@@ -42,7 +42,7 @@ class VkChecker
   end
 
   def expected_url
-    "gurmap.ru/places/#{order.place_id}?o=#{order.id}"
+    "tastell.ru/places/#{order.place_id}?o=#{order.id}"
   end
 
 end
