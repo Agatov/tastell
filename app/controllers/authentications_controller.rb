@@ -29,7 +29,7 @@ class AuthenticationsController < ApplicationController
       login @user
     end
 
-    redirect_to places_path if request.format == :mobile
+    redirect_to last_viewed_path if request.format == :mobile
 
   end
 
