@@ -29,6 +29,8 @@ class AuthenticationsController < ApplicationController
       login @user
     end
 
+    redirect_to places_path if request.format == :mobile
+
   end
 
   def sign_out
