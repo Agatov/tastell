@@ -44,4 +44,9 @@
     .story
       = @place.description.html_safe
 
-= render partial: 'places/order'
+- if user_logged_in?
+  = render partial: 'places/order'
+- else
+  #need-auth
+    %a.oauth-link{href: '/auth/vkontakte'} Авторизуйтесь,
+    чтобы получить возможность делиться комментариями.
