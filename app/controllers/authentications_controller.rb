@@ -29,7 +29,7 @@ class AuthenticationsController < ApplicationController
       login @user
     end
 
-    redirect_to last_viewed_path if request.format == :mobile
+    redirect_to(request.env['omniauth.origin']) if request.format == :mobile
 
   end
 

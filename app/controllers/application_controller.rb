@@ -2,29 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
-  before_filter :set_last_viewed_path
-
   def mobile_device?
     #request.format = :mobile unless request.format == :json
     #return false
 
     if request.user_agent =~ /Mobile|webOS/
       request.format = :mobile unless request.format == :json
-
-      #if request.fullpath == root_path
-      #  redirect_to new_authentication_path
-      #end
-
-      true
     end
-  end
-
-  def set_last_viewed_path
-    session[:last_viewed_path] = current_path
-  end
-
-  def last_viewed_path
-    session[:last_viewed_path]
   end
 
   def authenticate_user!
