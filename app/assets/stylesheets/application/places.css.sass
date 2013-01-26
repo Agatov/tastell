@@ -1,5 +1,11 @@
 #places-list
-  clear: both
+  &:after
+    clear: both
+    content: "."
+    display: block
+    height: 0
+    clear: both
+    visibility: hidden
   .place
     float: left
     width: 380px
