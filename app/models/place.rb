@@ -27,8 +27,8 @@ class Place < ActiveRecord::Base
     {geo: latlng, with: {"@geodist" => 0.0..1000.0}}
   }
 
-  def logo_mini_url
-    logo_url(:mini) if logo?
+  def avatar_wide
+    avatar_url(:wide) if avatar?
   end
 
   # @param [Account] account

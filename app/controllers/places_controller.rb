@@ -3,7 +3,20 @@ class PlacesController < ApplicationController
   before_filter :mobile_device?
 
   def index
-    @places = Place.order(:id)
+
+    if params[:latlng]
+      latlng = params[:latlng].split(',')
+      latitude = latlng.first.to_f
+      longitude = latlng.last.to_f
+
+      @places = Place.search(
+          geo: Geocoder::Calculations.to_radians([latitude, longitude]),
+          with: {'@geodist' => 0.0..10000.0},
+          order: '@geodist asc'
+      )
+    else
+      @places = Place.order(:id)
+    end
 
     respond_to do |format|
       format.html

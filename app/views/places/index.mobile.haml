@@ -3,8 +3,21 @@
   геолокацию и она должна быть включена в настройках.
 
 
+%script#place-list-item-template{type: "text/template"}
+  %a.image{href: '/places/<%= id %>'.html_safe}
+    %img{src: '<%= avatar_wide %>'.html_safe }
+  .info
+    .name
+      %a{href: '/places/<%= id %>'.html_safe}
+        <%= name %>
+    .price
+      = '~ 3500 Р'
+  .kitchen
+    Кухня:
+    = 'Русская, Японская, Татарская'
+
 %ul#places-list
-  - @places.each do |place|
+  -# @places.each do |place|
     %li.place
       %a.image{href: place_path(place)}
         = image_tag place.avatar_url(:wide)

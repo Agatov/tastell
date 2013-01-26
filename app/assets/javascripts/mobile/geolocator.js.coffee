@@ -16,6 +16,8 @@ class window.Geolocator
 
         (error) =>
 
+          $(@).trigger("latlng_fail")
+
           @error = error
 
           errors = {
@@ -23,8 +25,6 @@ class window.Geolocator
             2: 'Местоположение невозможно определить',
             3: 'Таймаут соединения'
           }
-
-          #console.log("Ошибка #{errors[error.code]} (#{error.code})")
 
         {
           enableHighAccuracy: true,

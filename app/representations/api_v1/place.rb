@@ -6,7 +6,7 @@ module ApiV1::Place
       template.add :id
       template.add :name
       template.add :address
-      template.add :logo_mini_url
+      template.add :avatar_wide
     end
 
   end

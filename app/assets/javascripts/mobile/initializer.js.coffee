@@ -10,3 +10,7 @@ $ ->
 
   if $("#repost")
     window.repost_button = new RepostButton($("#repost"))
+
+  if $("#places-list").size() == 1
+    window.pl = new PlacesList()
+    pl.initialize()

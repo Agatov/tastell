@@ -10,6 +10,7 @@ class window.PlacesList
     _.bindAll(@, "get_places")
 
     $(@geolocator).bind("latlng_ready", @get_places)
+    $(@geolocator).bind('latlng_fail', @get_places)
 
     @geolocator.initialize()
 
