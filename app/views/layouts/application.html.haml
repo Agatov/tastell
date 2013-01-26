@@ -7,14 +7,8 @@
   %body
     #header
       .wrapper_wide
-        #logo
-          = image_tag('Logo_80px_h.jpg')
-        %ul#header-links
-          %li
-            %a{href: '#'} О проекте
-          %li
-            %a{href: '#'} Заведениям
-          %li
-            %a{href: '#'} Войти
+        = render partial: 'layouts/header'
     .wrapper_wide
+      #about
+        Тэстл - это места, о которых говорят
       = yield

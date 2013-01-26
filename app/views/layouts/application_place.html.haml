@@ -7,7 +7,9 @@
     = javascript_include_tag "application"
   %body
     #header
-      .wrapper{style: 'box-sizing: border-box; padding-top: 40px;'}
+      .wrapper
+        = render partial: 'layouts/header'
+      -#
         - if user_logged_in?
           = link_to 'Выйти', sign_out_authentications_path, method: :delete, style: 'float: right'
         - else
