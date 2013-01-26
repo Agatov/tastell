@@ -34,7 +34,7 @@ gem 'vkontakte_api'
 gem 'omniauth'
 gem 'omniauth-vkontakte'
 
-gem 'thinking-sphinx', '~> 3.0.0'
+gem 'thinking-sphinx', '~> 2.0.14'
 
 gem 'acts_as_api'
 
