@@ -1,0 +1,4 @@
+development:
+  enable_star: true
+  min_prefix_len: 1
+  pid_file: tmp/searchd.pid

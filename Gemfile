@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 
 gem 'sqlite3'
-gem 'mysql2'
+gem 'mysql2', '0.3.12b4'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
@@ -34,7 +34,7 @@ gem 'vkontakte_api'
 gem 'omniauth'
 gem 'omniauth-vkontakte'
 
-gem 'thinking-sphinx'
+gem 'thinking-sphinx', '~> 3.0.0'
 
 gem 'acts_as_api'
 

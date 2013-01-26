@@ -22,7 +22,7 @@ class Place < ActiveRecord::Base
   #  has "RADIANS(`places`.`latitude`)", as: :latitude, type: :float
   #  has "RADIANS(`places`.`longitude`)", as: :longitude, type: :float
   #end
-
+  #
   #sphinx_scope(:by_point) { |latlng|
   #  {geo: latlng, with: {"@geodist" => 0.0..1000.0}}
   #}
