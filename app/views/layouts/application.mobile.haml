@@ -9,7 +9,8 @@
     #wrapper
       #header
         .title
-          = image_tag 'mob_logo.png'
+          %a{href: root_path}
+            = image_tag 'mob_logo.png'
       .hr-shadow
       - if user_logged_in?
         #user-info
