@@ -14,6 +14,8 @@ class PlacesController < ApplicationController
           with: {'@geodist' => 0.0..10000.0},
           order: '@geodist asc'
       )
+    elsif params[:search] && !params[:search].empty?
+      @places = Place.search params[:search] + '*'
     else
       @places = Place.order(:id)
     end
