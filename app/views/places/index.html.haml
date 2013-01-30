@@ -3,7 +3,7 @@
     Воспользуйтесь поиском
 
   %form.search-area#search-form{action: '/places'}
-    %input.search-field{name: 'search', value: params[:search] ? params[:search] : '', placeholder: 'Просто напишите в этом поле название заведения или его адрес'}
+    %input.search-field{name: 'search', value: params[:search] ? params[:search] : '', autocomplete: :off, placeholder: 'Просто напишите в этом поле название заведения или его адрес'}
     %button.search-button#search-button
       Найти
 
