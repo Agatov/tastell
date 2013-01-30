@@ -1,6 +1,6 @@
 class Place < ActiveRecord::Base
   attr_accessible :address, :avatar, :average_check, :description, :latitude, :longitude, :name, :phone, :logo
-  attr_accessible :schedule, :public_phone, :kitchen
+  attr_accessible :schedule, :public_phone, :kitchen, :metro
 
   has_many :orders
   has_many :photos
@@ -17,7 +17,7 @@ class Place < ActiveRecord::Base
   include ApiV1::Place
 
   define_index do
-    indexes name
+    indexes name, address
 
     has "RADIANS(`places`.`latitude`)", as: :latitude, type: :float
     has "RADIANS(`places`.`longitude`)", as: :longitude, type: :float

@@ -5,6 +5,7 @@
 = simple_form_for @place, html: {class: 'form-vertical'}, url: url do |f|
 
   = f.input :name, input_html: { class: 'input-block-level' }
+  = f.input :metro, input_html: { class: 'input-block-level' }
   = f.input :address, input_html: { class: 'input-block-level' }
   = f.input :schedule, input_html: { class: 'input-block-level' }
   = f.input :public_phone, input_html: { class: 'input-block-level' }
