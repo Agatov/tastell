@@ -1,8 +1,10 @@
 class Order < ActiveRecord::Base
-  attr_accessible :content, :user_id, :place_id, :state, :state_cd, :moderated
+  attr_accessible :content, :user_id, :place_id, :state, :state_cd, :moderated, :table_number
 
   belongs_to :user
   belongs_to :place
+
+  include OrderConcerns::Smsable
 
   as_enum :state, [:fresh, :waiting, :confirmed, :rejected], prefix: true
 
@@ -32,7 +34,13 @@ class Order < ActiveRecord::Base
   protected
 
   def confirm
+    return false if state_confirmed?
+
     update_attributes(state: :confirmed)
+
+    if place.withdraw_balance
+      send_notification
+    end
   end
 
   def wait

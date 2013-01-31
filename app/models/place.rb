@@ -6,7 +6,7 @@ class Place < ActiveRecord::Base
   has_many :photos
   belongs_to :account
 
-  include Balance
+  include PlaceConcerns::Balance
 
   mount_uploader :avatar, PlaceAvatarUploader
   mount_uploader :logo, PlaceLogoUploader

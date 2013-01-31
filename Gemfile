@@ -43,6 +43,8 @@ gem 'flash_cookie_session'
 gem 'capistrano'
 gem 'unicorn'
 
+gem 'httparty'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

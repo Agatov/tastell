@@ -1,0 +1,3 @@
+ru:
+  sms:
+    notifcation_message: "%{date}, %{table_number}-й стол. %{username}"

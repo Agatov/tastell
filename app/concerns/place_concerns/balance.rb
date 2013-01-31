@@ -1,4 +1,4 @@
-class Place
+module PlaceConcerns
   module Balance
     extend ActiveSupport::Concern
 
