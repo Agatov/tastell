@@ -1,7 +1,7 @@
 class Place < ActiveRecord::Base
   attr_accessible :address, :avatar, :average_check, :description, :latitude, :longitude, :name, :phone, :logo
   attr_accessible :schedule, :public_phone, :kitchen, :metro
-  attr_accessible :balance, :credit
+  attr_accessible :balance, :credit, :active
 
   has_many :orders
   has_many :photos
@@ -39,5 +39,9 @@ class Place < ActiveRecord::Base
 
   def generate_hash_code
     self.hash_code =  Digest::MD5.hexdigest(Time.now.to_s)[0...16]
+  end
+
+  def active?
+    active
   end
 end
