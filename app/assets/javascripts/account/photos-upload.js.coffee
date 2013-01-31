@@ -38,18 +38,18 @@ class window.AccountPhotoUploader
     })
 
 $ ->
-  $(".photo-item").live('mouseover'
+  $(".photo-item").bind('mouseover'
     ->
       slide = $(this).children(".slide2")
       slide.show()
   )
-  $(".photo-item").live('mouseout'
+  $(".photo-item").bind('mouseout'
     ->
       slide = $(this).children(".slide2")
       slide.hide()
   )
 
-  $(".remove-photo").live("click",
+  $(".remove-photo").bind("click",
   ->
     $.ajax(
       type: "DELETE"
