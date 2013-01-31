@@ -44,6 +44,7 @@ gem 'capistrano'
 gem 'unicorn'
 
 gem 'httparty'
+gem 'russian'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
