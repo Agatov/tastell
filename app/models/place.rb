@@ -1,6 +1,7 @@
 class Place < ActiveRecord::Base
   attr_accessible :address, :avatar, :average_check, :description, :latitude, :longitude, :name, :phone, :logo
   attr_accessible :schedule, :public_phone, :kitchen, :metro
+  attr_accessible :balance, :credit
 
   has_many :orders
   has_many :photos
