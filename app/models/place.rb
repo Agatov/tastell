@@ -1,11 +1,12 @@
 class Place < ActiveRecord::Base
   attr_accessible :address, :avatar, :average_check, :description, :latitude, :longitude, :name, :phone, :logo
-  attr_accessible :schedule, :public_phone, :kitchen, :metro
-  attr_accessible :balance, :credit, :active
+  attr_accessible :schedule, :public_phone, :kitchen, :metro, :active
 
   has_many :orders
   has_many :photos
   belongs_to :account
+
+  include Balance
 
   mount_uploader :avatar, PlaceAvatarUploader
   mount_uploader :logo, PlaceLogoUploader
