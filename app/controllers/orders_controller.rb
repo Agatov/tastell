@@ -9,7 +9,9 @@ class OrdersController < ApplicationController
   end
 
   def check
-    if find_order.check.state_confirmed?
+    @order = find_order
+
+    if @order.check.state_confirmed?
       render json: {status: :success}
     else
       render json: {status: :error}
