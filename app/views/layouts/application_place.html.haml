@@ -9,11 +9,6 @@
     #header
       .wrapper
         = render partial: 'layouts/header'
-      -#
-        - if user_logged_in?
-          = link_to 'Выйти', sign_out_authentications_path, method: :delete, style: 'float: right'
-        - else
-          %a.oauth-link{href: '/auth/vkontakte', style: 'float: right'} Войти
 
     .wrapper
       = yield
