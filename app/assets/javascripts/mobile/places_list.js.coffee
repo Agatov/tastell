@@ -4,6 +4,7 @@ class window.PlacesList
     @el = $("#places-list")
     @places = []
     @geolocator = new Geolocator()
+    @search = null
 
   initialize: ->
 
@@ -14,15 +15,25 @@ class window.PlacesList
 
     @geolocator.initialize()
 
+  add_search: (search) ->
+    @search = search
+    $(@search).bind('value_changed', @get_places)
+
   get_places: (data) ->
-    if @geolocator.latlng()
-      url = "/places.json?latlng=#{@geolocator.latlng()}"
+#    if @geolocator.latlng()
+#      url = "/places.json?latlng=#{@geolocator.latlng()}"
+#    else
+#      url = "/places.json"
+
+    if @search
+      url = "/places.json?search=#{@search.value}"
     else
       url = "/places.json"
 
     $.get(
       url,
     (data) =>
+      @clear_places()
       @add_place(place) for place in data.places
       @render()
       $(@).trigger("ready")
@@ -32,6 +43,12 @@ class window.PlacesList
     place = new Place(data, @)
     @places.push place
 
+  remove_place: (place) ->
+    place.remove()
+
+  clear_places: ->
+    @remove_place(place) for place in @places
+    @places = []
 
   render: ->
     _.each(@places, (place) =>
@@ -58,4 +75,8 @@ class window.Place
     template = _.template($(@template).html())
     @el.html(template(@data))
     @
+
+
+  remove: ->
+    @el.remove()
 

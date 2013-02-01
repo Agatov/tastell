@@ -1,6 +1,9 @@
-#find-places-about
+-#find-places-about
   Выберите место в котором вы находитесь. Для этого ваш телефон должен поддерживать
   геолокацию и она должна быть включена в настройках.
+
+#search
+  %input#search-input{placeholder: 'Поиск по заведениям', autocomplete: :off}
 
 
 %script#place-list-item-template{type: "text/template"}
@@ -11,21 +14,10 @@
       %a{href: '/places/<%= id %>'.html_safe}
         <%= name %>
     .price
-      = '~ 3500 Р'
+      <%= average_check %>
   .kitchen
     Кухня:
-    = 'Русская, Японская, Татарская'
+    <%= kitchen %>
+
 
 %ul#places-list
-  -# @places.each do |place|
-    %li.place
-      %a.image{href: place_path(place)}
-        = image_tag place.avatar_url(:wide)
-      .info
-        .name
-          = link_to place.name, place_path(place)
-        .price
-          = '~ 3500 Р'
-      .kitchen
-        Кухня:
-        = 'Русская, Японская, Татарская'

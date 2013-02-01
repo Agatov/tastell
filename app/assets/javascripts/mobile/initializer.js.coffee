@@ -14,3 +14,5 @@ $ ->
   if $("#places-list").size() == 1
     window.pl = new PlacesList()
     pl.initialize()
+    window.search = new Search()
+    window.pl.add_search(window.search)

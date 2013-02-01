@@ -16,6 +16,8 @@
 //= require common/order_checker
 //= require mobile/order_checker_view
 
+//= require mobile/search
+
 //= require mobile/initializer
 
 // require_tree .

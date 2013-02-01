@@ -7,6 +7,10 @@ module ApiV1::Place
       template.add :name
       template.add :address
       template.add :avatar_wide
+      template.add :average_check
+      template.add :kitchen
+      template.add :address
+      template.add :metro
     end
 
   end
