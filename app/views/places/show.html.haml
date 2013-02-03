@@ -57,6 +57,7 @@
     .arrow
       %img{src: '/assets/bubble-arrow.png'}
     .image
+      = image_tag @place.avatar_url(:wide)
       .name
         = @place.name
 
