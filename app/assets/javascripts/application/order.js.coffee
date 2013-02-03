@@ -5,6 +5,7 @@ $ ->
       {
         'order[content]': $("#order-text").val()
         'order[place_id]': $("#place-id").val()
+        'order[table_number]': $("#table-number").val()
       },
       (data) ->
         if data.status == 'ok'
