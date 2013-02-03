@@ -11,7 +11,7 @@ class Order < ActiveRecord::Base
   scope :confirmed, where(state_cd: states(:confirmed))
   scope :only_moderated, where(moderated: true)
 
-  before_create :can_be_created?
+  #before_create :can_be_created?
 
   def check
     if VkChecker.new(self).check.success?
