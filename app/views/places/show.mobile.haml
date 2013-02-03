@@ -48,7 +48,7 @@
       = @place.description.html_safe
 
 - if user_logged_in?
-  = render partial: 'places/order'
+  = render partial: 'places/order', locals: {place: @place}
 - else
   #need-auth
     %a.oauth-link{href: '/auth/vkontakte'} Войдите через ВКонтакте

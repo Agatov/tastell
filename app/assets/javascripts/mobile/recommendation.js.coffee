@@ -19,12 +19,14 @@ class window.Recommendation
   initialize: ->
     _.bindAll(@, "after_recommend")
     @content = @recommend_area.val()
-    @place_id = 1
+    @place_id = $("#place-id").val()
+    @table_number = $("#table-number").val()
 
   params: ->
     params = {
       "order[content]": @content,
-      "order[place_id]": @place_id
+      "order[place_id]": @place_id,
+      "order[table_number]": @table_number
     }
     params
 
