@@ -23,5 +23,6 @@
     .last-row
       %form.search{action: places_path, method: :get}
         %input{name: :search,
+           autocomplete: :off,
            value: (params[:search] ? params[:search] : nil),
            placeholder: 'Напишите любое слово, имеющее отношение к заведению ( название, адрес )'}
