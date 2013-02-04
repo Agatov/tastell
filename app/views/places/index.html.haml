@@ -1,27 +1,24 @@
--#search
-  .label
-    Воспользуйтесь поиском
-
-  %form.search-area#search-form{action: '/places'}
-    %input.search-field{name: 'search', value: params[:search] ? params[:search] : '', autocomplete: :off, placeholder: 'Просто напишите в этом поле название заведения или его адрес'}
-    %button.search-button#search-button
-      Найти
-
-%ul#places-list
-  - @places.each do |place|
-    %li.place
-      %a.image{href: place_path(place)}
-        = image_tag place.avatar_url(:wide)
-      .info
-        .name
-          = link_to place.name, place_path(place)
-        .price
-          = "~ #{place.average_check.to_s} Р"
-      .kitchen
-        Кухня:
-        = place.kitchen
-      .metro
-        Метро:
-        = place.metro
-      .address
-        = place.address
+- if @places.empty?
+  #search-not-found
+    По вашему запросу ничего не найдено
+    .to-do
+      Попробуйте набрать что-нибудь другое в строке поиска ;)
+- else
+  %ul#places-list
+    - @places.each do |place|
+      %li.place
+        %a.image{href: place_path(place)}
+          = image_tag place.avatar_url(:wide)
+        .info
+          .name
+            = link_to place.name, place_path(place)
+          .price
+            = "~ #{place.average_check.to_s} Р"
+        .kitchen
+          Кухня:
+          = place.kitchen
+        .metro
+          Метро:
+          = place.metro
+        .address
+          = place.address
