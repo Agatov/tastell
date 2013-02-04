@@ -1,14 +1,27 @@
-#logo
-  %a{href: root_path}
-    = image_tag('logo_ogo_1.png')
+#header-inside
 
-  %ul#header-links
-    %li
-      %a{href: '#'} О проекте
-    %li
-      %a{href: '#'} Заведениям
-    %li
-      - if user_logged_in?
-        = link_to 'Выйти', sign_out_authentications_path, method: :delete, style: 'float: right'
-      - else
-        %a.oauth-link{href: '/auth/vkontakte', style: 'float: right'} Войти
+  #logo
+    %a{href: root_path}
+      = image_tag('logo.png')
+
+  #search-and-links
+    .first-row
+      .about
+        Кафе и рестораны, о которых говорят
+      %ul.header-links
+        %li
+          %a{href: '#'} О проекте
+        %li
+          %a{href: '#'} Заведениям
+
+        %li
+          - if user_logged_in?
+            = link_to 'Выйти', sign_out_authentications_path, method: :delete
+          - else
+            %a.oauth-link{href: '/auth/vkontakte'} Войти
+
+    .last-row
+      %form.search{action: places_path, method: :get}
+        %input{name: :search,
+           value: (params[:search] ? params[:search] : nil),
+           placeholder: 'Напишите любое слово, имеющее отношение к заведению ( название, адрес )'}
