@@ -9,10 +9,10 @@
       .about
         Кафе и рестораны, о которых говорят
       %ul.header-links
-        %li
-          %a{href: '#'} О проекте
-        %li
-          %a{href: '#'} Заведениям
+        %li{class: (params[:controller] == 'pages' and params[:action] == 'about') ? 'picked' : ''}
+          %a{href: about_pages_path} О проекте
+        %li{class: (params[:controller] == 'pages' and params[:action] == 'venues') ? 'picked' : ''}
+          %a{href: venues_pages_path} Заведениям
 
         %li
           - if user_logged_in?

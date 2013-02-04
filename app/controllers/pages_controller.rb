@@ -1,12 +1,16 @@
 class PagesController < ApplicationController
 
-  before_filter :mobile_device?
+  layout 'application_place'
 
   def index
-    @places = Place.order(:id).limit(6)
   end
 
   def show
+  end
 
+  def about
+  end
+
+  def contacts
   end
 end
