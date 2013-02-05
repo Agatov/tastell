@@ -42,7 +42,7 @@ class VkChecker
   end
 
   def expected_url
-    "tastell.ru/places/#{order.place_id}?o=#{order.id}"
+    "tastle.ru/places/#{order.place_id}?o=#{order.id}"
   end
 
 end

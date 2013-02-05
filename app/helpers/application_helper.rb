@@ -5,8 +5,8 @@ module ApplicationHelper
     host = request.host.gsub("m.", "")
     return {
         url: "http://#{host}/places/#{order.place.id}?o=#{order.id}",
-        title: CGI.escape("#{order.place.name}"),
-        description: CGI.escape(order.content),
+        title: CGI.escape("#{order.content}"),
+        description: CGI.escape(order.place.name),
         image: "http://#{host}/#{order.place.avatar_url(:small)}"
     }
   end
