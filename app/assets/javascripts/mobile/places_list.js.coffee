@@ -2,6 +2,7 @@ class window.PlacesList
 
   constructor: ->
     @el = $("#places-list")
+    @no_results = @el.find('#no-results')
     @places = []
     @geolocator = new Geolocator()
     @search = null
@@ -34,7 +35,10 @@ class window.PlacesList
       url,
     (data) =>
       @clear_places()
-      @add_place(place) for place in data.places
+
+      if data.places
+        @add_place(place) for place in data.places
+
       @render()
       $(@).trigger("ready")
     )
@@ -51,10 +55,16 @@ class window.PlacesList
     @places = []
 
   render: ->
-    _.each(@places, (place) =>
-      @el.append(place.render().el)
-    )
-    @el.show()
+
+    if @places.length == 0
+      @no_results.show()
+    else
+      @no_results.hide()
+
+      _.each(@places, (place) =>
+        @el.append(place.render().el)
+      )
+      @el.show()
 
 
 class window.Place
