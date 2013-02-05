@@ -21,18 +21,18 @@ class window.PlacesList
     $(@search).bind('value_changed', @get_places)
 
   get_places: (data) ->
-#    if @geolocator.latlng()
-#      url = "/places.json?latlng=#{@geolocator.latlng()}"
-#    else
-#      url = "/places.json"
+    url = "/places.json"
+    search_params = {}
 
-    if @search
-      url = "/places.json?search=#{@search.value}"
-    else
-      url = "/places.json"
+    if @search && @search.value.length > 0
+      search_params['search[string]'] = @search.value
+
+    if @geolocator.latlng()
+      search_params['search[latlng]'] = @geolocator.latlng()
 
     $.get(
       url,
+      search_params,
     (data) =>
       @clear_places()
 

@@ -26,7 +26,11 @@ class Place < ActiveRecord::Base
   end
 
   sphinx_scope(:by_point) { |latlng|
-    {geo: latlng, with: {"@geodist" => 0.0..1000.0}}
+    if !latlng.nil?
+      {geo: latlng, with: {'@geodist' => 0.0..10000.0}, order: '@geodist asc'}
+    else
+      {}
+    end
   }
 
   def avatar_wide
@@ -44,5 +48,12 @@ class Place < ActiveRecord::Base
 
   def active?
     active
+  end
+
+  def self.str_to_latlng
+    latlng = self.split(',')
+    latitude = latlng.first.to_f
+    longitude = latlng.last.to_f
+    [latitude, longitude]
   end
 end
