@@ -24,5 +24,5 @@
       %form.search{action: places_path, method: :get}
         %input{name: 'search[string]',
            autocomplete: :off,
-           value: (params[:search] ? params[:search] : nil),
+           value: ((params[:search] && params[:search][:string]) ? params[:search][:string] : nil),
            placeholder: 'Напишите любое слово, имеющее отношение к заведению ( название, адрес )'}
