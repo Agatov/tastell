@@ -65,7 +65,6 @@
 
 #place-comments
 
-
   .header
     - if user_logged_in?
       .form#comment-form
@@ -81,6 +80,10 @@
             %button.submit#submit-order{type: :button}
               Отправить
 
+      #vk-share-screen
+        Отзыв оставлен.
+        %a#share-link{href: '#'}
+          Расскажите о нем в ВКонтакте
       #checker
         .waiting
           .spin

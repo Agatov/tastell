@@ -11,12 +11,19 @@ $ ->
         if data.status == 'ok'
           $("#comment-form").hide()
           $("#vk-share-screen").show()
-          (window.open(data.url, "vkontakte", "location,top=0,width=800,height=500")).focus()
 
-          order_checker = new OrderChecker(data.order_id)
-          order_checker.initialize()
-
-
-
+          $("#share-link").attr('href', data.url)
+          $("#share-link").attr('order_id', data.order_id)
     )
+  )
+
+  $("#share-link").bind('click', ->
+    $("#vk-share-screen").hide()
+
+    (window.open($(this).attr('href'), "vkontakte", "location,top=0,width=800,height=500")).focus()
+
+    order_checker = new OrderChecker($(this).attr('order_id'))
+    order_checker.initialize()
+
+    false
   )
