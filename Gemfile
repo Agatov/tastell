@@ -46,6 +46,8 @@ gem 'unicorn'
 gem 'httparty'
 gem 'russian'
 
+gem 'meta-tags', :require => 'meta_tags'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

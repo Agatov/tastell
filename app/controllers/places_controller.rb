@@ -21,6 +21,7 @@ class PlacesController < ApplicationController
   def show
     @place = Place.find(params[:id])
     @last_orders = @place.orders.only_moderated.order('created_at desc')
+    meta_tags_for(@place)
 
     respond_to do |format|
       format.html {
@@ -28,5 +29,11 @@ class PlacesController < ApplicationController
       }
       format.mobile
     end
+  end
+
+  private
+
+  def meta_tags_for(place)
+    set_meta_tags title: place.name
   end
 end

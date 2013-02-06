@@ -94,6 +94,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta-tags (1.2.6)
+      actionpack
     mime-types (1.19)
     multi_json (1.5.0)
     multi_xml (0.5.2)
@@ -215,6 +217,7 @@ DEPENDENCIES
   haml-rails
   httparty
   jquery-rails
+  meta-tags
   mysql2 (= 0.3.12b4)
   omniauth
   omniauth-vkontakte
