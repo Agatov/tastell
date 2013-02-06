@@ -1,5 +1,5 @@
 class Order < ActiveRecord::Base
-  attr_accessible :content, :user_id, :place_id, :state, :state_cd, :moderated, :table_number
+  attr_accessible :content, :user_id, :place_id, :state, :state_cd, :moderated, :table_number, :date
 
   belongs_to :user
   belongs_to :place
@@ -10,8 +10,10 @@ class Order < ActiveRecord::Base
 
   scope :confirmed, where(state_cd: states(:confirmed))
   scope :only_moderated, where(moderated: true)
+  scope :with_place, lambda { |place| where(place_id: place.id) unless place.nil? }
+  scope :today, where(date: Time.now.strftime('%Y-%m-%d'))
 
-  #before_create :can_be_created?
+  before_create :set_date
 
   def check
     if VkChecker.new(self).check.success?
@@ -49,7 +51,7 @@ class Order < ActiveRecord::Base
 
   private
 
-  def can_be_created?
-    raise OrderExceptions::TooManyOrdersError.new unless user.can_create_order?
+  def set_date
+    self.date = Time.now.strftime('%Y-%m-%d')
   end
 end

@@ -1,37 +1,43 @@
 #place-order
 
-  .form#recommend-form
-    .label
-      Поделитесь мнением о заведении о получите комплимент.
+  - if current_user.can_create_order?(place)
+
+    .form#recommend-form
+      .label
+        Поделитесь мнением о заведении о получите комплимент.
 
 
-    %input#place-id{type: :hidden, value: place.id}
-    %input#table-number{type: :tel, placeholder: '№ Стола'}
-    %textarea.recommend-area#recommend-area{placeholder: 'Просто напишите вашу рекомендацию здесь...'}
+      %input#place-id{type: :hidden, value: place.id}
+      %input#table-number{type: :tel, placeholder: '№ Стола'}
+      %textarea.recommend-area#recommend-area{placeholder: 'Просто напишите вашу рекомендацию здесь...'}
 
-    .recommend-button#recommend
-      Рекомендовать
+      .recommend-button#recommend
+        Рекомендовать
 
-  .form#repost-form
-    .label
-      Ваш отзыв учтен. Осталось рассказать о нем в VK
-      и получить скидку
-    %a.repost-button#repost{href: '#'}
-      Рассказать в VK
+    .form#repost-form
+      .label
+        Ваш отзыв учтен. Осталось рассказать о нем в VK
+        и получить скидку
+      %a.repost-button#repost{href: '#'}
+        Рассказать в VK
 
 
-  #error
-    .duplicate
-      Вы можете делать лишь один заказ в сутки
-    .unknown
-      Внимание, произошла ошибка. Мы уже знаем о ней и работаем над исправлением
+    #error
+      .duplicate
+        Вы можете делать лишь один заказ в сутки
+      .unknown
+        Внимание, произошла ошибка. Мы уже знаем о ней и работаем над исправлением
 
-  #checker
-    .waiting
-      .spin-block
-        .spin
+    #checker
+      .waiting
+        .spin-block
+          .spin
 
-      Ожидание
-    .success
-      Ура! вы получили скидку!
-    .error
+        Ожидание
+      .success
+        Ура! вы получили скидку!
+      .error
+
+  - else
+    #orders-number-limit-reached
+      Вы уже размещали отзыв к этому заведению сегодня. Попробуйте завтра.

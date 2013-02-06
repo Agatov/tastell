@@ -10,8 +10,14 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
-  def can_create_order?
-    return true if orders.confirmed.empty?
-    orders.confirmed.last.created_at < 2.hours.ago(Time.now)
+  # @param [Order] order
+  def create_order(order)
+    return false unless can_create_order?(order.place)
+    order.save
+  end
+
+  # @param [Place] place
+  def can_create_order?(place)
+    orders.with_place(place).confirmed.today.empty?
   end
 end
