@@ -8,10 +8,10 @@ namespace :checker do
   end
 
   task check_confirmed: :environment do
-    orders = Order.confirmed
+    orders = Order.order(:id)
 
     orders.each do |order|
-
+      puts "[OK] | #{order.id}"
     end
 
   end

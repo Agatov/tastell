@@ -2,6 +2,8 @@ class VkChecker
 
   attr_accessor :order, :success, :vk
 
+  attr_accessor :likes_count, :reposts_count, :comments_count
+
   # @param [Order] order
   def initialize(unchecked_order)
 
@@ -13,7 +15,7 @@ class VkChecker
     self.vk.users.get(uid: order.user.authentication.uid)
   end
 
-  def get_wall_posts(count = 5)
+  def get_wall_posts(count = 20)
     posts = vk.wall.get(count: count)
 
     # Удаляем количество сообщений на стене
@@ -32,6 +34,10 @@ class VkChecker
   def check_one(post)
     if post.attachment["link"]["url"].include? expected_url
       self.success = true
+
+      self.likes_count = post.likes['count']
+      self.reposts_count = post.reposts['count']
+      self.comments = post.comments['count']
     end
 
     self
