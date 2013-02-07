@@ -11,3 +11,7 @@ $ ->
       if window.opener
         window.opener.location.reload()
       window.close()
+
+  if $("#oauth-failure")
+    if $.trim($("#oauth-failure").text()) == 'true'
+      window.close()

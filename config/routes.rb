@@ -3,6 +3,7 @@ Tastell::Application.routes.draw do
   root to: 'places#index'
 
   match '/auth/:provider/callback', to: 'authentications#create'
+  match '/auth/failure', to: 'authentications#failure'
 
   resources :places, only: [:index, :show]
   resources :orders, only: [:create] do
@@ -12,6 +13,7 @@ Tastell::Application.routes.draw do
   resources :users, only: [:index]
   resource :profile, only: [:show, :edit, :update]
   resources :authentications, only: [:new, :create] do
+    get :failure, on: :collection
     delete :sign_out, on: :collection
   end
 

@@ -33,6 +33,10 @@ class AuthenticationsController < ApplicationController
 
   end
 
+  def failure
+
+  end
+
   def sign_out
     logout
     redirect_to :back
