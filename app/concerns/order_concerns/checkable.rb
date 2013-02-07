@@ -7,9 +7,9 @@ module OrderConcerns
       attr_accessible :likes_count, :reposts_count, :comments_count
     end
 
-    def check
+    def check(check_depth = 5)
       update_checked_at
-      checker = VkChecker.new(self)
+      checker = VkChecker.new(self, check_depth)
 
       if checker.check.success?
         check_successful(checker)
