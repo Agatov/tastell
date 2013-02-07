@@ -37,7 +37,7 @@ class VkChecker
 
       self.likes_count = post.likes['count']
       self.reposts_count = post.reposts['count']
-      self.comments = post.comments['count']
+      self.comments_count = post.comments['count']
     end
 
     self
