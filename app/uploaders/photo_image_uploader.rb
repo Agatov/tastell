@@ -19,9 +19,17 @@ class PhotoImageUploader < CarrierWave::Uploader::Base
 
   version :full do
     process :resize_to_fill => [880, 480]
+    process :watermark
   end
 
   def extension_white_list
     %w(jpg jpeg gif png)
+  end
+
+  def watermark
+    manipulate! do |img|
+      logo = Magick::Image.read("#{Rails.root}/app/assets/images/watermark.png").first
+      img.composite(logo, Magick::SouthEastGravity, Magick::OverCompositeOp)
+    end
   end
 end
