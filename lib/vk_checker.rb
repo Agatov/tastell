@@ -1,10 +1,9 @@
 class VkChecker
 
   attr_accessor :order, :success, :vk
-
   attr_accessor :likes_count, :reposts_count, :comments_count
 
-  # @param [Order] order
+  # @param [Order] unchecked_order
   def initialize(unchecked_order)
 
     self.order = unchecked_order
@@ -25,14 +24,14 @@ class VkChecker
 
   def check
     get_wall_posts.each do |post|
-      next unless post.attachment and post.attachment["type"] == 'link'
+      next unless post.attachment and post.attachment['type'] == 'link'
       break if check_one(post).success?
     end
     self
   end
 
   def check_one(post)
-    if post.attachment["link"]["url"].include? expected_url
+    if post.attachment['link']['url'].include? expected_url
       self.success = true
 
       self.likes_count = post.likes['count']
