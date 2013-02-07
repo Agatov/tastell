@@ -21,8 +21,13 @@ module OrderConcerns
     end
 
     def check_successful(checker)
+
       if state_fresh? or state_waiting?
-        confirm
+        if can_finish?
+          finish
+        else
+          confirm
+        end
       end
 
       update_attributes(

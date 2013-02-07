@@ -34,5 +34,9 @@ module OrderConcerns
       update_attributes(state: :finished, finished_at: Time.now)
     end
 
+    def can_finish?
+      (Time.now - confirmed_at) / 3600 > 24
+    end
+
   end
 end
