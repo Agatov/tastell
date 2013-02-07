@@ -8,6 +8,8 @@ module OrderConcerns
       as_enum :state, [:fresh, :waiting, :confirmed, :rejected, :finished], prefix: true
 
       scope :confirmed, where(state_cd: states(:confirmed))
+      scope :rejected, where(state_cd: states(:rejected))
+      scope :finished, where(state_cd: states(:finished))
     end
 
     def confirm
