@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  place_id: 1
+  total_hits_count: 1
+  total_hosts_count: 1
+  order_hits_count: 1
+  order_hosts_count: 1
+  date: 2013-02-08
+
+two:
+  place_id: 1
+  total_hits_count: 1
+  total_hosts_count: 1
+  order_hits_count: 1
+  order_hosts_count: 1
+  date: 2013-02-08
