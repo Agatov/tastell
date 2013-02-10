@@ -13,7 +13,7 @@ module OrderConcerns
             method: 'push_msg',
             email: 'agatovs@gmail.com',
             password: 'avv6rqE',
-            phone: '+79037928959',
+            phone: place.phone,
             text: sms_text,
             sender_name: 'tastle'
         }
