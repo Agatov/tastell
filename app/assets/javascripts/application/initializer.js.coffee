@@ -20,7 +20,11 @@ $ ->
       )
 
   waitForMap( ->
-    map = new ymaps.Map('place-map', {center: [55.76, 37.64], zoom: 14})
+    latitude = $("#place-address").attr('latitude')
+    longitude = $("#place-address").attr('longitude')
+
+
+    map = new ymaps.Map('place-map', {center: [latitude, longitude], zoom: 14})
 
     myBalloonLayout = ymaps.templateLayoutFactory.createClass('$[properties.content]');
     ymaps.layout.storage.add('my#superlayout', myBalloonLayout);
@@ -28,7 +32,7 @@ $ ->
 
 
     placemark = new ymaps.Placemark(
-      [55.76, 37.64],
+      [latitude, longitude],
       {
         content: $("#balloon-template").html()
       },

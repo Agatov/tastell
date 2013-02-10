@@ -23,6 +23,8 @@ class PlacesController < ApplicationController
     @last_orders = @place.orders.only_moderated.order('created_at desc')
     meta_tags_for(@place)
 
+    view_place(@place)
+
     respond_to do |format|
       format.html {
         render layout: "application_place"
@@ -32,6 +34,16 @@ class PlacesController < ApplicationController
   end
 
   private
+
+  def view_place(place)
+    view_params = {}
+
+    view_params[:order] =  Order.find(params[:o]) if params[:o]
+    view_params[:user] = current_user if user_logged_in?
+    view_params[:ip_address] = request.remote_ip
+
+    place.add_view(view_params)
+  end
 
   def meta_tags_for(place)
     set_meta_tags title: place.name

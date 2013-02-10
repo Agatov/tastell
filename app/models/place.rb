@@ -4,6 +4,8 @@ class Place < ActiveRecord::Base
 
   has_many :orders
   has_many :photos
+  has_many :place_views
+  has_many :place_daily_views
   belongs_to :account
 
   include PlaceConcerns::Balance
@@ -48,6 +50,14 @@ class Place < ActiveRecord::Base
 
   def active?
     active
+  end
+
+  def add_view(params = {})
+    view = place_views.build()
+    view.ip_address = params[:ip_address]
+    view.order ||= params[:order]
+    view.user ||= params[:user]
+    view.save
   end
 
   def self.str_to_latlng

@@ -5,7 +5,7 @@
   .info
     .name
       = @place.name
-    .address
+    .address#place-address{latitude: @place.latitude, longitude: @place.longitude}
       = @place.address
 
 #place-photos
