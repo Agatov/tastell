@@ -35,6 +35,7 @@ module OrderConcerns
     end
 
     def can_finish?
+      return false if confirmed_at.nil?
       (Time.now - confirmed_at) / 3600 > 24
     end
 
