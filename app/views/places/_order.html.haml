@@ -1,0 +1,42 @@
+.header
+  - if user_logged_in?
+    - if current_user.can_create_order?(place)
+      .form#comment-form
+        .avatar
+          = image_tag current_user.avatar_url(:thumb)
+        .fields
+          .tip
+            Поделитесь вашим мнением об этом заведении:
+          .input
+            %input.comment#order-text{type: :text, placeholder: 'Просто напишите его здесь...'}
+            %input.comment.table-number#table-number{type: :text, placeholder: '№ Стола'}
+            %input#place-id{type: :hidden, value: place.id}
+            %button.submit#submit-order{type: :button}
+              Отправить
+
+      #vk-share-screen
+        Отзыв оставлен.
+        %a#share-link{href: '#'}
+          Расскажите о нем в ВКонтакте
+      #checker
+        .waiting
+          .spin
+          ожидание репоста
+        .success
+          Репост найден. Ожидайте презента!
+        .error
+          Произошла ошибка. Попробуйте сделать это по новой.
+
+
+      #comment-sent.simple-text
+        Ваш комментарий оставлен. В случае одобрения модератором, он будет опубликован на сайте.
+
+    - else
+      #orders-number-limit-reached
+        Вы уже размещали отзыв к этому заведению сегодня. Попробуйте завтра.
+
+
+  - else
+    #need-auth.simple-text
+      %a.oauth-link{href: '/auth/vkontakte'} Авторизуйтесь,
+      чтобы получить возможность делиться комментариями.

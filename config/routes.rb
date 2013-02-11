@@ -5,7 +5,9 @@ Tastell::Application.routes.draw do
   match '/auth/:provider/callback', to: 'authentications#create'
   match '/auth/failure', to: 'authentications#failure'
 
-  resources :places, only: [:index, :show]
+  resources :places, only: [:index, :show] do
+    resources :comments, on: :collection, only: :index, controller: 'place/comments'
+  end
   resources :orders, only: [:create] do
     get :check, on: :member
   end

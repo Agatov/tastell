@@ -6,8 +6,15 @@ class User < ActiveRecord::Base
   has_many :orders
   has_one :authentication
 
+  acts_as_api
+  include ApiV1::User
+
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def avatar_mini
+    avatar_url(:mini)
   end
 
   # @param [Order] order

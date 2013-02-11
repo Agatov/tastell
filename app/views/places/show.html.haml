@@ -1,4 +1,4 @@
-#place-header
+#place-header{place_id: @place.id}
   .avatar
     = image_tag @place.logo_url(:small_thumb)
 
@@ -46,6 +46,11 @@
         %td
           = @place.public_phone
 
+#place-comments
+
+  = render partial: 'places/order', locals: {place: @place}
+  = render partial: 'places/comments', locals: {comments: @last_orders}
+
 
 - unless @place.description.nil?
   #place-content
@@ -62,63 +67,3 @@
         = @place.name
 
 #place-map
-
-#place-comments
-
-  .header
-    - if user_logged_in?
-      - if current_user.can_create_order?(@place)
-        .form#comment-form
-          .avatar
-            = image_tag current_user.avatar_url(:thumb)
-          .fields
-            .tip
-              Поделитесь вашим мнением об этом заведении:
-            .input
-              %input.comment#order-text{type: :text, placeholder: 'Просто напишите его здесь...'}
-              %input.comment.table-number#table-number{type: :text, placeholder: '№ Стола'}
-              %input#place-id{type: :hidden, value: @place.id}
-              %button.submit#submit-order{type: :button}
-                Отправить
-
-        #vk-share-screen
-          Отзыв оставлен.
-          %a#share-link{href: '#'}
-            Расскажите о нем в ВКонтакте
-        #checker
-          .waiting
-            .spin
-            ожидание репоста
-          .success
-            Репост найден. Ожидайте презента!
-          .error
-            Произошла ошибка. Попробуйте сделать это по новой.
-
-
-        #comment-sent.simple-text
-          Ваш комментарий оставлен. В случае одобрения модератором, он будет опубликован на сайте.
-
-      - else
-        #orders-number-limit-reached
-          Вы уже размещали отзыв к этому заведению сегодня. Попробуйте завтра.
-
-
-    - else
-      #need-auth.simple-text
-        %a.oauth-link{href: '/auth/vkontakte'} Авторизуйтесь,
-        чтобы получить возможность делиться комментариями.
-
-  .comments
-
-    - @last_orders.each do |comment|
-      .comment
-        .avatar
-          = image_tag comment.user.avatar_url(:mini)
-        .content
-          .top
-            .name
-              = comment.user.full_name
-            .date
-              = l comment.created_at, format: :dayMonth
-          .text
-            = comment.content

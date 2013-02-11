@@ -14,12 +14,19 @@ class Order < ActiveRecord::Base
 
   before_create :set_date
 
+  acts_as_api
+  include ApiV1::Order
+
   def moderated?
     moderated
   end
 
   def moderate
     update_attributes(moderated: true)
+  end
+
+  def nice_date
+    I18n.localize created_at, format: :dayMonth
   end
 
   private

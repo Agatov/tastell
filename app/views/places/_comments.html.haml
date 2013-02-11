@@ -1,0 +1,19 @@
+.comments#comments-list
+  - if comments.empty?
+    .empty
+      Список комментариев пуст
+  - else
+    - comments.each do |comment|
+      = render partial: 'places/comment', locals: {comment: comment}
+
+%script#comment-template{type: "text/template"}
+  .avatar
+    %img{src: "<%= user.avatar_mini %>".html_safe}
+  .content
+    .top
+      .name
+        <%= user.full_name %>
+      .date
+        <%= nice_date %>
+    .text
+      <%= content %>
