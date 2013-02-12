@@ -4,3 +4,6 @@ ru:
   time:
     formats:
       dayMonth: "%d %B"
+  hosts: 'Посетители'
+  hits: 'Просмотры'
+  order_hits: 'Переходы по ссылкам'
