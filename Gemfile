@@ -51,6 +51,7 @@ gem 'meta-tags', :require => 'meta_tags'
 gem 'whenever'
 
 gem 'prawn'
+gem 'gruff'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
