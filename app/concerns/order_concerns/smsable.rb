@@ -30,7 +30,8 @@ module OrderConcerns
       I18n.translate(
           'sms.notifcation_message',
           username: user.first_name,
-          table_number: table_number.to_s
+          table_number: table_number.to_s,
+          date: created_at.strftime('%d %b, %H:%M')
       )
     end
 

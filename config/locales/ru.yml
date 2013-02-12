@@ -1,6 +1,6 @@
 ru:
   sms:
-    notifcation_message: "%{table_number}-й стол. %{username}"
+    notifcation_message: "%{date}, %{table_number}-й стол. %{username}"
   time:
     formats:
       dayMonth: "%d %B"
