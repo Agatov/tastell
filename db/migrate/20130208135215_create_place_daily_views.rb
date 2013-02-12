@@ -6,7 +6,6 @@ class CreatePlaceDailyViews < ActiveRecord::Migration
       t.integer :hits_count, default: 0
       t.integer :order_hits_count, default: 0
       t.integer :order_hosts_count, default: 0
-      t.integer :orders_count, default: 0
       t.date :date
 
       t.timestamps

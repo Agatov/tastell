@@ -4,11 +4,10 @@ class Place < ActiveRecord::Base
 
   has_many :orders
   has_many :photos
-  has_many :place_views
-  has_many :place_daily_views
   belongs_to :account
 
   include PlaceConcerns::Balance
+  include PlaceConcerns::Stats
 
   mount_uploader :avatar, PlaceAvatarUploader
   mount_uploader :logo, PlaceLogoUploader
