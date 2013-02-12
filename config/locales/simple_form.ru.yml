@@ -1,0 +1,25 @@
+ru:
+  simple_form:
+    "yes": 'Yes'
+    "no": 'No'
+    required:
+      text: 'required'
+      mark: '<i style="color: red; font-size: 16px">*</i>'
+      # You can uncomment the line below if you need to overwrite the whole required html.
+      # When using html, text and mark won't be used.
+      # html: '<abbr title="required">*</abbr>'
+    error_notification:
+      default_message: "Some errors were found, please take a look:"
+    labels:
+      place:
+        name: Название
+        metro: Ближайшая станция метро
+        address: Адрес
+        schedule: Расписание работы
+        public_phone: Телефон (будет доступен на сайте)
+        phone: Телефон для sms-уведомлений
+        kitchen: Кухня
+        average_check: Средний чек (одно число)
+        avatar: Картинка (будет показываться на главной странице)
+        logo: Логотип (будет показываться на странице заведения)
+        description: Описание
