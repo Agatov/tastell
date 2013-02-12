@@ -38,7 +38,14 @@ class PlacesController < ApplicationController
   def view_place(place)
     view_params = {}
 
-    view_params[:order] =  Order.find(params[:o]) if params[:o]
+    if params[:o]
+      begin
+        view_params[:order] = Order.find(params[:o])
+      rescue Exception => e
+        view_params[:order] = nil
+      end
+    end
+
     view_params[:user] = current_user if user_logged_in?
     view_params[:ip_address] = request.remote_ip
 
