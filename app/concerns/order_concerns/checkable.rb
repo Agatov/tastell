@@ -9,12 +9,18 @@ module OrderConcerns
 
     def check(check_depth = 5)
       update_checked_at
-      checker = VkChecker.new(self, check_depth)
 
-      if checker.check.success?
-        check_successful(checker)
-      else
-         check_failure
+      begin
+        checker = VkChecker.new(self, check_depth)
+
+        if checker.check.success?
+          check_successful(checker)
+        else
+           check_failure
+        end
+
+      rescue Exception => e
+        check_failure
       end
 
       self

@@ -48,6 +48,8 @@ gem 'russian'
 
 gem 'meta-tags', :require => 'meta_tags'
 
+gem 'whenever'
+
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'
 

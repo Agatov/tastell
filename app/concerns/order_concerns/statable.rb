@@ -7,6 +7,7 @@ module OrderConcerns
       attr_accessible :confirmed_at, :rejected_at, :finished_at
       as_enum :state, [:fresh, :waiting, :confirmed, :rejected, :finished], prefix: true
 
+      scope :fresh_and_waiting, where(state_cd: states(:fresh, :waiting))
       scope :confirmed, where(state_cd: states(:confirmed))
       scope :rejected, where(state_cd: states(:rejected))
       scope :finished, where(state_cd: states(:finished))

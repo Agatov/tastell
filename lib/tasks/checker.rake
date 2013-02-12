@@ -1,9 +1,11 @@
 namespace :checker do
+
   task check_fresh: :environment do
-    orders = Order.fresh
+    orders = Order.fresh_and_waiting
 
     orders.each do |order|
-
+      order.check
+      puts "[#{order.id}] | checked"
     end
   end
 
