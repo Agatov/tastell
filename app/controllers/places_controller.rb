@@ -4,7 +4,7 @@ class PlacesController < ApplicationController
 
   def index
     if params[:search]
-      @places = Place.by_point(LatLng.new(params[:search][:latlng]).to_radiance).search(params[:search][:string]).order('id desc')
+      @places = Place.by_point(LatLng.new(params[:search][:latlng]).to_radiance).search(params[:search][:string])
     else
       @places = Place.order('id desc')
     end
