@@ -4,17 +4,17 @@ class window.PlacesList
     @el = $("#places-list")
     @no_results = @el.find('#no-results')
     @places = []
-    @geolocator = new Geolocator()
+#    @geolocator = new Geolocator()
     @search = null
 
   initialize: ->
 
     _.bindAll(@, "get_places")
 
-    $(@geolocator).bind("latlng_ready", @get_places)
-    $(@geolocator).bind('latlng_fail', @get_places)
-
-    @geolocator.initialize()
+#    $(@geolocator).bind("latlng_ready", @get_places)
+#    $(@geolocator).bind('latlng_fail', @get_places)
+#
+#    @geolocator.initialize()
 
   add_search: (search) ->
     @search = search
@@ -27,8 +27,8 @@ class window.PlacesList
     if @search && @search.value.length > 0
       search_params['search[string]'] = @search.value
 
-    if @geolocator.latlng()
-      search_params['search[latlng]'] = @geolocator.latlng()
+#    if @geolocator.latlng()
+#      search_params['search[latlng]'] = @geolocator.latlng()
 
     $.get(
       url,
