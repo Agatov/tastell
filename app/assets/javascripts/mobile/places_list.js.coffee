@@ -10,6 +10,7 @@ class window.PlacesList
   initialize: ->
 
     _.bindAll(@, "get_places")
+    @get_places()
 
 #    $(@geolocator).bind("latlng_ready", @get_places)
 #    $(@geolocator).bind('latlng_fail', @get_places)
@@ -20,7 +21,7 @@ class window.PlacesList
     @search = search
     $(@search).bind('value_changed', @get_places)
 
-  get_places: (data) ->
+  get_places: ->
     url = "/places.json"
     search_params = {}
 
