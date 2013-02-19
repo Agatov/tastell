@@ -1,0 +1,21 @@
+!!! 5
+%html
+  %head
+    = csrf_meta_tags
+    = stylesheet_link_tag    'admin', :media => 'all'
+    = javascript_include_tag 'admin'
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %ul.nav
+            %li
+              = link_to 'Заведения', admin_places_path
+            %li
+              = link_to 'Пользователи', admin_users_path
+
+    .container
+      .row
+        .span12
+          = yield
+          = yield :scripts

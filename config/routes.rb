@@ -34,6 +34,11 @@ Tastell::Application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resource :places, only: [:index, :show]
+    resource :users
+  end
+
   resources :pages, only: [] do
     get :about, on: :collection
     get :venues, on: :collection
