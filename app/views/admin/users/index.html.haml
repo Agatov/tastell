@@ -1,0 +1,15 @@
+%legend
+  Пользователи
+  %a.btn{href: new_admin_user_path, style: 'float: right'}
+    Добавить
+
+
+%table{width: '100%'}
+  - @users.each do |user|
+    %tr
+      %td{width: 70}
+        = image_tag user.avatar_mini
+      %td{width: 200}
+        = user.full_name
+      %td
+        = link_to 'редактировать', edit_admin_user_path(user.id)

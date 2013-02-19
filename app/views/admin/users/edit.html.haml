@@ -1,0 +1,4 @@
+%legend
+  Редактировать пользователя
+
+= render partial: 'admin/users/form', locals: {user: @user, url: admin_user_path(@user.id)}

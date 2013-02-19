@@ -1,0 +1,13 @@
+%legend
+  Заведения
+
+
+%table{width: '100%'}
+  - @places.each do |place|
+    %tr
+      %td{width: 20}
+        = place.id
+      %td{width: 200}
+        = place.name
+      %td
+        = link_to 'просмотреть', admin_place_path(place.id)
