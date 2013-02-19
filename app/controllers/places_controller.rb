@@ -10,9 +10,7 @@ class PlacesController < ApplicationController
     end
 
     respond_to do |format|
-      format.html {
-        render layout 'map'
-      }
+      format.html
       format.mobile
       format.json {
         render_for_api :list, json: @places, meta: {status: :ok}
@@ -23,7 +21,9 @@ class PlacesController < ApplicationController
   def map
     @places = Place.order(:id)
     respond_to do |format|
-      format.html
+      format.html {
+        render layout: 'map'
+      }
       format.json {
         render_for_api :list, json: @places
       }
