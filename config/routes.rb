@@ -6,6 +6,7 @@ Tastell::Application.routes.draw do
   match '/auth/failure', to: 'authentications#failure'
 
   resources :places, only: [:index, :show] do
+    get :map, on: :collection
     resources :comments, on: :collection, only: :index, controller: 'place/comments'
   end
   resources :orders, only: [:create] do

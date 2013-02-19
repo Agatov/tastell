@@ -1,0 +1,11 @@
+!!! 5
+%html
+  %head
+    = csrf_meta_tags
+    = stylesheet_link_tag    'map', :media => 'all'
+    = javascript_include_tag 'http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU'
+    = javascript_include_tag 'map'
+    = display_meta_tags site: 'Тэстл. Кафе и рестораны, о которых говорят'
+  %body
+    = render partial: 'layouts/footer'
+    = render partial: 'layouts/metrika'
