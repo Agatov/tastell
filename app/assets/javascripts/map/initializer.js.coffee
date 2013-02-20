@@ -6,10 +6,18 @@ $ ->
   waitForMap( ->
     size_me()
 
-    #Инициализурем карту
-    window.yandex_map = new ymaps.Map($("#map")[0], {center: [55.76, 37.64], zoom: 14})
 
     # Инициализируем Backbone.Marionette приложение
+    MapApp.addInitializer( ->
+      MapApp.places = new MapApp.Places
+    )
+
+    MapApp.start()
+
+    MapApp.places.fetch()
+
+    #Инициализурем карту
+    window.yandex_map = new YandexMap
   )
 
 

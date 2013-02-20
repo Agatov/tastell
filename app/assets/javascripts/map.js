@@ -5,4 +5,13 @@
 //= require map/backbone.marionette
 // require map/hamlcoffee
 
+
+//= require map/yandex_map
+//= require map/map_app
+
+// Сначала грузим вьюхи, затем модели, затем коллекции. И только так.
+//= require_tree ./map/app/views
+//= require_tree ./map/app/models
+//= require_tree ./map/app/collections
+
 //= require map/initializer

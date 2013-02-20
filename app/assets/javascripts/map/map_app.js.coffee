@@ -1,0 +1,1 @@
+window.MapApp = new Backbone.Marionette.Application()
