@@ -11,6 +11,8 @@ module ApiV1::Place
       template.add :kitchen
       template.add :address
       template.add :metro
+      template.add :latitude
+      template.add :longitude
     end
 
   end
