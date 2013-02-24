@@ -1,0 +1,6 @@
+.arrow
+  %img{src: '/assets/bubble-arrow.png'}
+.image
+  %img{src: @avatar_wide }
+  .name
+    = @name

@@ -6,6 +6,8 @@ $ ->
   waitForMap( ->
     size_me()
 
+    #Инициализурем карту
+    window.yandex_map = new YandexMap
 
     # Инициализируем Backbone.Marionette приложение
     MapApp.addInitializer( ->
@@ -15,9 +17,6 @@ $ ->
     MapApp.start()
 
     MapApp.places.fetch()
-
-    #Инициализурем карту
-    window.yandex_map = new YandexMap
   )
 
 
