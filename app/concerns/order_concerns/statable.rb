@@ -5,7 +5,7 @@ module OrderConcerns
     included do
       attr_accessible :state, :state_cd
       attr_accessible :confirmed_at, :rejected_at, :finished_at
-      as_enum :state, [:fresh, :waiting, :confirmed, :rejected, :finished], prefix: true
+      as_enum :state, [:fresh, :waiting, :confirmed, :rejected, :finished, :fake], prefix: true
 
       scope :fresh_and_waiting, where(state_cd: states(:fresh, :waiting))
       scope :confirmed, where(state_cd: states(:confirmed))
