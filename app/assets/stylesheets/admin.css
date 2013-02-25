@@ -1,8 +1,4 @@
 /*
  *= require bootstrap
+ *= require_tree ./admin
  */
-
-
-body {
-    padding-top: 50px;
-}
