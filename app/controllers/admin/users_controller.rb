@@ -19,7 +19,7 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user])
+    @user = User.new(params[:user], fake: true)
 
     if @user.save
       redirect_to admin_users_path
