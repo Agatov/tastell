@@ -17,5 +17,8 @@
   = f.input :logo
   = image_tag @place.logo_url(:thumb)
 
+  .active-check-area
+    = f.input :active
+
   .form-actions
     = f.submit 'Готово', class: ['btn', 'btn-large', 'btn-info']

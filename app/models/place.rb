@@ -18,6 +18,8 @@ class Place < ActiveRecord::Base
   after_validation :geocode, if: :address_changed?
   after_create :create_place_requisites
 
+  scope :active, where(active: true)
+
   acts_as_api
   include ApiV1::Place
 
