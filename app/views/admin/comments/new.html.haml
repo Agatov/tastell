@@ -1,0 +1,6 @@
+%legend
+  = @place.name
+  = '/'
+  Добавить комментарий
+
+= render partial: 'admin/comments/form', locals: { comment: @comment, url: admin_place_comments_path }

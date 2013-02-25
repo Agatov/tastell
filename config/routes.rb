@@ -35,7 +35,9 @@ Tastell::Application.routes.draw do
   end
 
   namespace :admin do
-    resources :places, only: [:index, :show]
+    resources :places, only: [:index, :show] do
+      resources :comments, only: [:new, :create, :edit, :update, :destroy]
+    end
     resources :users
   end
 
