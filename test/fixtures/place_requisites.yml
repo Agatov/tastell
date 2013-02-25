@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  place_id: 1
+  legal_address: MyString
+  inn_kpp: MyString
+  ogrn: MyString
+  settlement_account: MyString
+  correspondent_account: MyString
+  bank: MyString
+  bik: MyString
+
+two:
+  place_id: 1
+  legal_address: MyString
+  inn_kpp: MyString
+  ogrn: MyString
+  settlement_account: MyString
+  correspondent_account: MyString
+  bank: MyString
+  bik: MyString
