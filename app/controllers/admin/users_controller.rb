@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   layout 'admin'
 
   def index
-    @users = User.order(:id)
+    @users = User.fakes.order('id desc')
   end
 
   def show
@@ -19,7 +19,8 @@ class Admin::UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(params[:user], fake: true)
+    @user = User.new(params[:user])
+    @user.fake = true
 
     if @user.save
       redirect_to admin_users_path

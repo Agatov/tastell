@@ -1,2 +1,26 @@
-%h1
+%legend
   = @place.name
+  = '/'
+  Комментарии
+
+  %a.btn{href: new_admin_place_comment_path(@place), style: 'float: right'}
+    Добавить
+
+- unless @comments.empty?
+  #place-comments
+    - @comments.each do |comment|
+      .comment
+        .avatar
+          = image_tag comment.user.avatar_url(:mini)
+        .content
+          .top
+            .name
+              = comment.user.full_name
+            .date
+              = comment.nice_date
+          .text
+            = comment.content
+          .actions
+            = link_to 'редактировать', edit_admin_place_comment_path(@place, comment)
+            = link_to 'удалить', admin_place_comment_path(@place, comment), method: :delete, confirm: 'Вы уверены?'
+

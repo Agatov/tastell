@@ -8,5 +8,7 @@ class Admin::PlacesController < ApplicationController
 
   def show
     @place = Place.find(params[:id])
+
+    @comments = @place.orders.order('id desc')
   end
 end
