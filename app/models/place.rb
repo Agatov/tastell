@@ -16,6 +16,7 @@ class Place < ActiveRecord::Base
   geocoded_by :address
   before_create :generate_hash_code
   after_validation :geocode, if: :address_changed?
+  after_create :create_place_requisites
 
   acts_as_api
   include ApiV1::Place
@@ -65,5 +66,12 @@ class Place < ActiveRecord::Base
     latitude = latlng.first.to_f
     longitude = latlng.last.to_f
     [latitude, longitude]
+  end
+
+  private
+
+  def create_place_requisites
+    requisites = self.build_place_requisites
+    requisites.save
   end
 end

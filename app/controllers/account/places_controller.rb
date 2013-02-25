@@ -8,6 +8,7 @@ class Account::PlacesController < AccountsController
 
   def show
     @place = find_place
+    @place_requisites = @place.place_requisites
   end
 
   def new

@@ -15,3 +15,54 @@
         = link_to 'Основное', edit_account_place_path(@place)
       %li
         = link_to 'Описание', description_account_place_path(@place)
+      %li
+        = link_to 'Реквизиты', edit_account_place_place_requisite_path(@place, @place_requisites)
+
+    %legend
+      Реквизиты
+
+    %table.table
+      %tr
+        %td{width: 250}
+          Юридический адрес
+        %td
+          = @place_requisites.legal_address
+
+      %tr
+        %td
+          ИНН / КПП
+        %td
+          = @place_requisites.inn_kpp
+
+      %tr
+        %td
+          ОГРН
+        %td
+          = @place_requisites.ogrn
+
+      %tr
+        %td
+          Рассчетный счет
+        %td
+          = @place_requisites.settlement_account
+
+      %tr
+        %td
+          Корреспондентский счет
+        %td
+          = @place_requisites.correspondent_account
+
+      %tr
+        %td
+          Банк
+        %td
+          = @place_requisites.bank
+
+      %tr
+        %td
+          Бик
+        %td
+          = @place_requisites.bik
+
+
+

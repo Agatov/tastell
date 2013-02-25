@@ -1,0 +1,10 @@
+= simple_form_for @place_requisites, html: {class: 'form-vertical'}, url: account_place_place_requisite_path(@place, @place_requisites) do |f|
+  = f.input :legal_address
+  = f.input :inn_kpp
+  = f.input :ogrn
+  = f.input :settlement_account
+  = f.input :correspondent_account
+  = f.input :bank
+  = f.input :bik
+  .form-actions
+    = f.submit 'Сохранить', class: ['btn', 'btn-success']

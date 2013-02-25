@@ -30,6 +30,7 @@ Tastell::Application.routes.draw do
     resources :places do
       get :description, on: :member
 
+      resources :place_requisites, only: [:edit, :update]
       resources :photos, only: [:index, :create, :destroy]
     end
   end

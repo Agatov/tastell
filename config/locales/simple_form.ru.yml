@@ -23,3 +23,13 @@ ru:
         avatar: Картинка (будет показываться на главной странице)
         logo: Логотип (будет показываться на странице заведения)
         description: Описание
+
+      place_requisites:
+        legal_address: Юридический адрес
+        inn_kpp: ИНН / КПП
+        ogrn: ОГРН
+        settlement_account: Рассчетный счет
+        correspondent_account: Корреспондентский счет
+        bank: Банк
+        bik: Бик
+
