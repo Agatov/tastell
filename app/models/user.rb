@@ -1,5 +1,6 @@
 class User < ActiveRecord::Base
   attr_accessible :avatar, :first_name, :last_name
+  attr_accessible :fake
 
   mount_uploader :avatar, UserAvatarUploader
 
