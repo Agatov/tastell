@@ -7,6 +7,7 @@ module ApiV1::Place
       template.add :name
       template.add :address
       template.add :avatar_wide
+      template.add :avatar_map
       template.add :average_check
       template.add :kitchen
       template.add :address

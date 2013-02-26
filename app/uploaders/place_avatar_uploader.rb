@@ -29,6 +29,10 @@ class PlaceAvatarUploader < CarrierWave::Uploader::Base
     process :resize_to_fill => [280, 190]
   end
 
+  version :map do
+    process :resize_to_fill => [240, 160]
+  end
+
   def extension_white_list
     %w(jpg jpeg gif png)
   end

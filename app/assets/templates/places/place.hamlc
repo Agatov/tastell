@@ -1,2 +1,16 @@
-.name
-  = @name
+.top
+  .average-check
+    .label
+      Средний счет
+    .value
+      1 500
+      %small руб.
+  .avatar
+    %img{ src: @avatar_map }
+
+.bottom
+  .name
+    %a{href: "/places/#{@id}"}
+      = @name
+  .address
+    = @address
