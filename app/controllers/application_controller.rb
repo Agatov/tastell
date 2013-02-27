@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authenticate_user!
-    return true
+    #return true
     not_found unless user_logged_in?
   end
 
@@ -25,14 +25,14 @@ class ApplicationController < ActionController::Base
   end
 
   def current_user
-    return User.first
+    #return User.first
     if session[:user_id] and !session[:user_id].empty?
       @current_user ||= User.find(session[:user_id])
     end
   end
 
   def user_logged_in?
-    return true
+    #return true
     return false if session[:user_id] and session[:user_id].empty?
     return session[:user_id] ? true : false
   end
