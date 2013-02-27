@@ -6,7 +6,7 @@ class PlacesController < ApplicationController
     if params[:search]
       @places = Place.by_point(LatLng.new(params[:search][:latlng]).to_radiance).search(params[:search][:string])
     else
-      @places = Place.order('id desc')
+      @places = Place.active.order('id desc')
     end
 
     respond_to do |format|
