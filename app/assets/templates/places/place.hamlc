@@ -6,7 +6,8 @@
       1 500
       %small руб.
   .avatar
-    %img{ src: @avatar_map }
+    %a{href: "/places/#{@id}"}
+      %img{ src: @avatar_map }
 
 .bottom
   .name
