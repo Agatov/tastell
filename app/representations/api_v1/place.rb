@@ -14,6 +14,8 @@ module ApiV1::Place
       template.add :metro
       template.add :latitude
       template.add :longitude
+      template.add :popular
+      template.add :recommended
     end
 
   end
