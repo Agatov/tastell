@@ -97,6 +97,9 @@ GEM
     json (1.7.6)
     jwt (0.1.5)
       multi_json (>= 1.0)
+    kaminari (0.14.1)
+      actionpack (>= 3.0.0)
+      activesupport (>= 3.0.0)
     kgio (2.8.0)
     mail (2.4.4)
       i18n (>= 0.4.0)
@@ -240,6 +243,7 @@ DEPENDENCIES
   haml_coffee_assets
   httparty
   jquery-rails
+  kaminari
   meta-tags
   mysql2 (= 0.3.12b4)
   omniauth

@@ -30,6 +30,7 @@ gem 'carrierwave'
 
 gem 'simple_form'
 gem 'geocoder'
+gem 'kaminari'
 
 gem 'vkontakte_api'
 gem 'omniauth'
