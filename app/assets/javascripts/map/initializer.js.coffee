@@ -16,12 +16,18 @@ $ ->
     # Инициализируем Backbone.Marionette приложение
     MapApp.addInitializer( ->
       MapApp.places = new MapApp.Places
+      MapApp.map_places = new MapApp.MapPlaces
       MapApp.places_region.show(new MapApp.PlacesView({ collection: MapApp.places }))
     )
 
     MapApp.start()
 
     MapApp.places.fetch()
+    MapApp.map_places.fetch()
+  )
+
+  $("#load-more-places").bind('click', ->
+    MapApp.places.fetch({update: true, remove: false})
   )
 
 

@@ -30,6 +30,15 @@ class PlacesController < ApplicationController
     end
   end
 
+  def list
+    @places = Place.order(:id).page(params[:page]).per(4)
+    respond_to do |format|
+      format.json {
+        render_for_api :list, json: @places
+      }
+    end
+  end
+
   def show
     @place = Place.find(params[:id])
     @last_orders = @place.orders.only_moderated.order('created_at desc')

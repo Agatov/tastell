@@ -7,6 +7,7 @@ Tastell::Application.routes.draw do
 
   resources :places, only: [:index, :show] do
     get :map, on: :collection
+    get :list, on: :collection
     resources :comments, on: :collection, only: :index, controller: 'place/comments'
   end
   resources :orders, only: [:create] do
