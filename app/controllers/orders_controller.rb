@@ -3,8 +3,10 @@ class OrdersController < ApplicationController
   before_filter :authenticate_user!
   rescue_from OrderExceptions::TooManyOrdersError, with: :duplicated_order
 
+  # @todo сделать модерацию по умолчанию.
   def create
     @order = current_user.orders.build(params[:order])
+    @order.moderated = true
 
     if current_user.create_order(@order)
       render json: {status: :ok, order_id: @order.id, url: vk_social_url(@order)}
