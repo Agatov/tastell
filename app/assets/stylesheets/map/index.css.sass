@@ -30,9 +30,69 @@ body
   position: relative
 
   #map
+    position: relative
     width: 1200px
     margin: 15px auto
     height: 550px
+
+    .map-widget
+      position: absolute
+      top: 50px
+      right: 50px
+      width: 300px
+      height: 450px
+      background: #fff
+      border: 1px solid #ddd
+      z-index: 2
+      box-shadow: 1px 1px 3px 1px rgba(0,0,0, 0.2)
+
+      .header
+        height: 30px
+        line-height: 30px
+        text-align: center
+        background: -webkit-linear-gradient(top, #fcfcfc, #f2f2f2)
+        border-bottom: 1px solid #ddd
+        font-size: 18px
+        font-weight: 200
+        color: #333
+
+    .places
+      .place
+        position: relative
+        width: 300px
+        height: 50px
+        padding: 10px 0px
+        border-bottom: 1px solid #f2f2f2
+        &:hover
+          background: #f2f2f2
+
+        .avatar
+          margin-left: 10px
+          width: 50px
+          height: 50px
+          a
+            img
+              width: 50px
+              height:  50px
+
+        .info
+          position: absolute
+          top: 10px
+          left: 70px
+
+          .name
+            height: 36px
+            font-size: 18px
+            color: #333
+            font-weight: 200
+
+          .address
+            height: 14px
+            line-height: 14px
+            font-size: 14px
+            font-weight: 100
+            color: #000
+
 
 #places
   background: #fcfcfc
@@ -64,7 +124,12 @@ h1
   margin: 25px 0px
   font-size: 36px
   font-weight: 200
-  background: #fcfcfc
+  color: #333
+
+h2
+  margin: 15px 0px
+  font-size: 24px
+  font-weight: 200
   color: #333
 
 .btn

@@ -26,10 +26,32 @@
     #map-container
       #map
 
+        .map-widget
+          .header
+            Лучшие заведения
+          .places
+            - Place.order(:id).limit(6).each do |place|
+              .place
+                .avatar
+                  %a{href: '#'}
+                    = image_tag place.logo_url(:mini)
+                .info
+                  .name
+                    = place.name
+                  .address
+                    = place.address
+
+    #bottom
+      #last-comments
+        .comments
+      #popular-places
+        .popular-places
+
     #comments
       Последние комментарии
 
     #footer
+      &copy;
       tastle.ru 2013.
 
     -#= yield
