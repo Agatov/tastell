@@ -47,6 +47,10 @@ class Place < ActiveRecord::Base
     avatar_url(:map) if avatar?
   end
 
+  def logo_mini
+    logo_url(:mini) if logo?
+  end
+
   # @param [Account] account
   def can_be_changed_by?(account)
     account.id == account_id

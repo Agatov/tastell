@@ -28,11 +28,11 @@
       #map
 
         .map-widget
-          .places-widget
+          .places-widget#popular-place-list
             .header
               Популярные заведения
             .places
-              - Place.order(:id).limit(6).each do |place|
+              -#- Place.order(:id).limit(6).each do |place|
                 .place
                   .avatar
                     %a{href: '#'}

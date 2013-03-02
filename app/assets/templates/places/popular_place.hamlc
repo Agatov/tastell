@@ -1,0 +1,9 @@
+.avatar
+  %a{href: "/places/#{@id}"}
+    %img{src: @logo_mini }
+.info
+  .name
+    %a{href: "/places/#{@id}"}
+      = @name
+  .address
+    = @address

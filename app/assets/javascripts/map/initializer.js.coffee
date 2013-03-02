@@ -11,19 +11,25 @@ $ ->
 
     MapApp.addRegions({
       places_region: '#places-list'
+      popular_places_region: '#popular-place-list'
     })
 
     # Инициализируем Backbone.Marionette приложение
     MapApp.addInitializer( ->
       MapApp.places = new MapApp.Places
       MapApp.map_places = new MapApp.MapPlaces
+      MapApp.popular_places = new MapApp.PopularPlaces()
       MapApp.places_region.show(new MapApp.PlacesView({ collection: MapApp.places }))
+      MapApp.popular_places_region.show(new MapApp.PopularPlacesView({ collection: MapApp.popular_places }))
     )
 
     MapApp.start()
 
     MapApp.places.fetch()
-    MapApp.map_places.fetch()
+    MapApp.map_places.fetch({
+      success: ->
+        MapApp.popular_places.add(MapApp.map_places.where({popular: true}))
+    })
   )
 
   $("#load-more-places").bind('click', ->
