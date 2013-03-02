@@ -3,4 +3,6 @@
  *= require map/index
  *= require map/balloon
  *= require map/places
+ *= require map/places_widget
+ *= require application/comments
  */

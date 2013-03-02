@@ -7,6 +7,7 @@
     = javascript_include_tag 'map'
     = display_meta_tags site: 'Тэстл. Кафе и рестораны, о которых говорят'
   %body
+    -#overlay
     #header
     #about
       .container
@@ -27,31 +28,46 @@
       #map
 
         .map-widget
-          .header
-            Лучшие заведения
-          .places
-            - Place.order(:id).limit(6).each do |place|
-              .place
-                .avatar
-                  %a{href: '#'}
-                    = image_tag place.logo_url(:mini)
-                .info
-                  .name
-                    = place.name
-                  .address
-                    = place.address
+          .places-widget
+            .header
+              Популярные заведения
+            .places
+              - Place.order(:id).limit(6).each do |place|
+                .place
+                  .avatar
+                    %a{href: '#'}
+                      = image_tag place.logo_url(:mini)
+                  .info
+                    .name
+                      = place.name
+                    .address
+                      = place.address
 
-    #bottom
-      #last-comments
+    #last-comments
+      .container
+        %h1
+          Последние комментарии
+      .comments-widget
         .comments
-      #popular-places
-        .popular-places
+          - Order.order('id desc').each do |comment|
+            .comment
+              .avatar
+                = image_tag comment.user.avatar_url(:mini)
+              .content
+                .top
+                  .name
+                    = comment.user.full_name
+                  .date
+                    = l comment.created_at, format: :dayMonth
+                .text
+                  = comment.content
 
-    #comments
-      Последние комментарии
+
+
+
 
     #footer
       &copy;
       tastle.ru 2013.
 
-    -#= yield
+    = yield
