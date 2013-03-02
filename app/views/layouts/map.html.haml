@@ -37,9 +37,10 @@
                   .avatar
                     %a{href: '#'}
                       = image_tag place.logo_url(:mini)
-                  .info
+                  .info{href: '#'}
                     .name
-                      = place.name
+                      %a{href: place_path(place)}
+                        = place.name
                     .address
                       = place.address
 
