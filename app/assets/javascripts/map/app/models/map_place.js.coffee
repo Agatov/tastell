@@ -9,6 +9,9 @@ class MapApp.MapPlace extends Backbone.Model
   latlng: ->
     [@.get('latitude'), @.get('longitude')]
 
+  lefter_laglng: ->
+    [@.get('latitude'), @.get('longitude') + 0.009]
+
   open_balloon: ->
     @placemark.balloon.open()
 

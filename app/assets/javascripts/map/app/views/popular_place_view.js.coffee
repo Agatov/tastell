@@ -9,6 +9,7 @@ class MapApp.PopularPlaceView extends Backbone.Marionette.ItemView
 
   open_balloon: ->
     @model.open_balloon()
+    yandex_map.map.setCenter(@model.lefter_laglng())
 
   close_balloon: ->
     @model.close_balloon()
