@@ -50,6 +50,6 @@ class window.YandexMap
       placemark.options.set("iconImageHref", "/assets/marker_empty.png")
     )
 
-    console.log(placemark.geometry)
+    place.placemark = placemark
 
     @map.geoObjects.add(placemark)
