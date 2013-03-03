@@ -51,6 +51,7 @@ Tastell::Application.configure do
   config.assets.precompile += %w( mobile.css mobile.js )
   config.assets.precompile += %w( account.css account.js )
   config.assets.precompile += %w( authentication.js )
+  config.assets.precompile += %w( map.css map.js )
 
   # Disable delivery errors, bad email addresses will be ignored
   # config.action_mailer.raise_delivery_errors = false
