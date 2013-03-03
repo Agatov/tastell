@@ -45,7 +45,7 @@
           Последние комментарии
       .comments-widget
         .comments
-          - Order.order('id desc').each do |comment|
+          - Order.only_moderated.order('id desc').each do |comment|
             .comment
               .avatar
                 = image_tag comment.user.avatar_url(:mini)
