@@ -3,7 +3,7 @@
     .label
       Средний счет
     .value
-      1 500
+      = @average_check
       %small руб.
   .avatar
     %a{href: "/places/#{@id}"}
