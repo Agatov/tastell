@@ -15,6 +15,13 @@ body
       text-decoration:  underline
 
 
+a
+  color: #0081ad
+  text-decoration: none
+  &:hover
+    text-decoration: underline
+
+
 
 #about
   width: 100%
@@ -76,37 +83,6 @@ body
 
 
 
-#places
-  background: #fcfcfc
-  text-align: center
-
-
-#bottom
-  width: 100%
-  min-height: 100px
-  background: #fcfcfc
-  .container
-    width: 940px
-    margin: 0px auto
-    clear: both
-
-    &:after
-      clear: both
-      content: "."
-      display: block
-      height: 0
-      clear: both
-      visibility: hidden
-
-
-    #last-comments
-      width: 900px
-      float: right
-
-    #popular-places
-      width: 300px
-      float: left
-
 
 
 #last-comments
@@ -140,19 +116,20 @@ body
   font-weight: 100
 
 h1
-  margin: 25px 0px
+  padding: 25px 0px
   font-size: 36px
   font-weight: 200
   color: #333
 
 h2
-  margin: 15px 0px
+  padding: 15px 0px
   font-size: 24px
   font-weight: 200
   color: #333
 
 .btn
-  margin: 25px auto
+  margin: 0px auto
+  margin-top: 10px
   width: 150px
   height: 35px
   line-height: 35px
