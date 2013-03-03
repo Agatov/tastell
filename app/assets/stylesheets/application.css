@@ -2,10 +2,9 @@
  *= require_self
  *= require reset
  *= require application/index
- *= require application/header
+ *= require common/header
  *= require application/places
  *= require application/place
  *= require application/pages
- *= require application/search
  *= require application/comments
  */

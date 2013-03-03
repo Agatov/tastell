@@ -7,16 +7,9 @@
     = javascript_include_tag 'map'
     = display_meta_tags site: 'Тэстл. Кафе и рестораны, о которых говорят'
   %body
-    -#overlay
     #header
       .container
-        #logo
-          = image_tag('logo_white.png')
-        %form#search{action: places_path, method: :get}
-          %input{name: 'search[string]',
-                     autocomplete: :off,
-                     value: ((params[:search] && params[:search][:string]) ? params[:search][:string] : nil),
-                     placeholder: 'Поиск'}
+        = render partial: 'layouts/new_header'
 
     #for-restoraunts
       Вы владелец заведения? Узнайте о проекте
