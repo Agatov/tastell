@@ -2,15 +2,62 @@
 %html
   %head
     = csrf_meta_tags
-    = stylesheet_link_tag    "application", :media => "all"
+    = stylesheet_link_tag    "map", :media => "all"
     = javascript_include_tag "http://api-maps.yandex.ru/2.0/?load=package.full&lang=ru-RU"
-    = javascript_include_tag "application"
+    = javascript_include_tag "map"
     = display_meta_tags site: 'Тэстл. Кафе и рестораны, о которых говорят'
   %body
     #header
-      .wrapper_wide
-        = render partial: 'layouts/header'
-    .wrapper_wide
-      = yield
-    = render partial: 'layouts/footer'
-    = render partial: 'layouts/metrika'
+      .container
+        = render partial: 'layouts/new_header'
+
+    #for-restoraunts
+      Вы владелец заведения? Узнайте о проекте
+      %a{href: '#'} подробнее
+    #about
+      .container
+        .banner
+
+
+    #places
+      %h1
+        Наши заведения
+      #places-list
+
+      .btn#load-more-places
+        Показать еще
+
+
+
+    #map-container
+      %h1
+        Заведения на карте
+      #map
+
+        .map-widget
+          .header
+            Популярные заведения
+          .places-widget#popular-place-list
+
+    #last-comments
+      .container
+        %h1
+          Последние комментарии
+      .comments-widget
+        .comments
+          - Order.order('id desc').each do |comment|
+            .comment
+              .avatar
+                = image_tag comment.user.avatar_url(:mini)
+              .content
+                .top
+                  .name
+                    = comment.user.full_name
+                  .date
+                    = l comment.created_at, format: :dayMonth
+                .text
+                  = comment.content
+
+    #footer
+      &copy;
+      tastle.ru 2013.

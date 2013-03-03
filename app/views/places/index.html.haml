@@ -4,21 +4,27 @@
     .to-do
       Попробуйте набрать что-нибудь другое в строке поиска ;)
 - else
-  %ul#places-list
-    - @places.each do |place|
-      %li.place
-        %a.image{href: place_path(place)}
-          = image_tag place.avatar_url(:wide)
-        .info
-          .name
-            = link_to place.name, place_path(place)
-          .price
-            = "~ #{place.average_check.to_s} Р"
-        .kitchen
-          Кухня:
-          = place.kitchen
-        .metro
-          Метро:
-          = place.metro
-        .address
-          = place.address
+  #places
+    %h1
+      Результаты поиска
+    #places-list
+      .container
+        - @places.each do |place|
+          .place
+            .top
+              .average-check
+                .label
+                  Средний счет
+                .value
+                  1 500
+                  %small руб.
+              .avatar
+                %a{href: "/places/#{place.id}"}
+                  %img{ src: place.avatar_map }
+
+            .bottom
+              .name
+                %a{href: "/places/#{place.id}"}
+                  = place.name
+              .address
+                = place.address

@@ -5,12 +5,16 @@ class PlacesController < ApplicationController
   def index
     if params[:search]
       @places = Place.by_point(LatLng.new(params[:search][:latlng]).to_radiance).search(params[:search][:string])
+      layout = 'search'
     else
       @places = Place.active.order('id desc')
+      layout = 'application'
     end
 
     respond_to do |format|
-      format.html
+      format.html {
+        render layout: layout
+      }
       format.mobile
       format.json {
         render_for_api :list, json: @places, meta: {status: :ok}
