@@ -35,7 +35,7 @@ class PlacesController < ApplicationController
   end
 
   def list
-    @places = Place.order(:id).page(params[:page]).per(4)
+    @places = Place.order(:id).page(params[:page]).per(8)
     respond_to do |format|
       format.json {
         render_for_api :list, json: @places
