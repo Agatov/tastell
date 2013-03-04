@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  layout 'application_place'
+  layout 'page'
 
   def index
   end
