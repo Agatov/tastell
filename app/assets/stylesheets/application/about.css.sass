@@ -2,6 +2,7 @@
   background: #fff
   font-family: 'Helvetica Neue', Helvetica, Arial
   .block
+    position: relative
     padding: 50px 0
     border-bottom: 1px solid #ececec
     .name
@@ -23,4 +24,44 @@
       margin-left: 440px
     .text
       margin-left: 440px
+
+
+@mixin img($path)
+  width: 250px
+  height: 250px
+  background: url($path) no-repeat
+  background-size: 250px
+  position: absolute
+
+#img1
+  @include img('/assets/about/1.png')
+  top: 100px
+  right: 100px
+
+#img2
+  @include img('/assets/about/2.png')
+  top: 50px
+  left: 100px
+
+#img3
+  @include img('/assets/about/3.png')
+  top: 150px
+  right: 100px
+
+#img5
+  @include img('/assets/about/5.png')
+  top: 25px
+  left: 100px
+
+#img6
+  @include img('/assets/about/6.png')
+  top: 150px
+  right: 100px
+
+#img7
+  @include img('/assets/about/7.png')
+  top: 125px
+  left: 100px
+
+
 
