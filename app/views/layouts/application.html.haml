@@ -42,10 +42,10 @@
     #last-comments
       .container
         %h1
-          Последние комментарии
+          Последние отзывы
       .comments-widget
         .comments
-          - Order.only_moderated.order('id desc').each do |comment|
+          - Order.only_moderated.order('id desc').limit(15).each do |comment|
             .comment
               .avatar
                 = image_tag comment.user.avatar_url(:mini)
