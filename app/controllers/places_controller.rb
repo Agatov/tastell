@@ -23,7 +23,7 @@ class PlacesController < ApplicationController
   end
 
   def map
-    @places = Place.order(:id)
+    @places = Place.order(:id).active
     respond_to do |format|
       format.html {
         render layout: 'map'
@@ -35,7 +35,7 @@ class PlacesController < ApplicationController
   end
 
   def list
-    @places = Place.order('id desc').page(params[:page]).per(8)
+    @places = Place.order('id desc').active.page(params[:page]).per(8)
     respond_to do |format|
       format.json {
         render_for_api :list, json: @places

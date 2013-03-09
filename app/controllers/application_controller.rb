@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+
+  include ApplicationHelper
+
   protect_from_forgery
   rescue_from ActiveRecord::RecordNotFound, with: :render_not_found
 
@@ -6,7 +9,7 @@ class ApplicationController < ActionController::Base
     #request.format = :mobile unless request.format == :json
     #return false
 
-    if request.user_agent =~ /Mobile|webOS/
+    if mobile_browser? request.user_agent
       request.format = :mobile unless request.format == :json
     end
   end

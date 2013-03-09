@@ -27,6 +27,8 @@ module ApplicationHelper
   def mobile_browser?(agent)
     agent.downcase!
 
+    return false if agent.match('ipad')
+
     MOBILE_BROWSERS.each do |m|
       return true if agent.match(m)
     end
