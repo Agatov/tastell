@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  place_menu_category_id: 1
+  pid: 1
+  name: MyString
+  description: MyString
+  price: 1
+
+two:
+  place_menu_category_id: 1
+  pid: 1
+  name: MyString
+  description: MyString
+  price: 1
