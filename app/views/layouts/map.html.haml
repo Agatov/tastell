@@ -45,7 +45,7 @@
           Последние комментарии
       .comments-widget
         .comments
-          - Order.order('id desc').each do |comment|
+          - Order.order('id desc').includes(:user).includes(:place).each do |comment|
             .comment
               .avatar
                 = image_tag comment.user.avatar_url(:mini)
@@ -53,6 +53,8 @@
                 .top
                   .name
                     = comment.user.full_name
+                    к заведению
+                    = link_to comment.place.name, place_path(comment.place)
                   .date
                     = l comment.created_at, format: :dayMonth
                 .text

@@ -45,7 +45,7 @@
           Последние отзывы
       .comments-widget
         .comments
-          - Order.only_moderated.order('id desc').limit(15).each do |comment|
+          - Order.only_moderated.order('id desc').includes(:user).includes(:place).limit(15).each do |comment|
             .comment
               .avatar
                 = image_tag comment.user.avatar_url(:mini)
@@ -53,6 +53,10 @@
                 .top
                   .name
                     = comment.user.full_name
+                    %small{style: 'font-size: 12px; font-style: italic;'}
+                      ( о ресторане
+                      = link_to comment.place.name, place_path(comment.place)
+                      )
                   .date
                     = l comment.created_at, format: :dayMonth
                 .text
